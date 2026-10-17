@@ -237,16 +237,18 @@ button {
   font-weight: 800;
   font-size: 1.05rem;
   color: var(--ink);
-  margin: 16px 0 0;
+  margin: 14px 0 0;
 }
 
+/* Dòng gợi ý thu nhỏ, đẩy sát xuống gần footer để thẻ có thêm không gian thở. */
 .stack-hint {
   text-align: center;
   color: var(--ink-soft);
   font-weight: 600;
-  margin: 6px 0 0;
-  font-size: 1.02rem;
+  margin: 34px 0 0;
+  font-size: 0.82rem;
   padding: 0 16px;
+  opacity: 0.85;
 }
 
 
@@ -255,19 +257,42 @@ button {
    Mọi kích thước chữ dùng đơn vị em, co giãn theo đúng kích thước thẻ
    (biến --stack-card-size do TopicView đặt) nên luôn đều và không tràn. */
 .learn-card {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.4em;
+  gap: 0.55em;
   padding: 0.8em 0.6em;
   color: #fff;
   text-align: center;
   font-size: calc(var(--stack-card-size, var(--bounce-cards-size, 160px)) * 0.095);
   overflow: hidden;
   border-radius: 36px;
+}
+
+/* Quầng sáng mềm sau biểu tượng — thẻ trông có chiều sâu, đỡ trống. */
+.learn-card::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 36%;
+  width: 86%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0) 62%
+  );
+  pointer-events: none;
+}
+
+.learn-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .learn-card--big {
@@ -282,33 +307,33 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 4.6em;
+  min-height: 6em;
 }
 
 .learn-visual__text {
-  font-size: 4em;
+  font-size: 5.4em;
   font-weight: 800;
   line-height: 1;
   text-shadow: 0 0.07em 0 rgba(0, 0, 0, 0.16);
 }
 
 .learn-visual__emoji {
-  font-size: 3.9em;
+  font-size: 5.2em;
   line-height: 1;
   filter: drop-shadow(0 0.09em 0.09em rgba(0, 0, 0, 0.18));
 }
 
 .learn-visual__swatch {
-  width: 5em;
-  height: 5em;
+  width: 6em;
+  height: 6em;
   border-radius: 50%;
   border: 0.35em solid rgba(255, 255, 255, 0.9);
   box-shadow: 0 0.5em 1em -0.4em rgba(0, 0, 0, 0.35);
 }
 
 .learn-visual__svg {
-  width: 5em;
-  height: 5em;
+  width: 6em;
+  height: 6em;
   filter: drop-shadow(0 0.35em 0.35em rgba(0, 0, 0, 0.22));
 }
 
