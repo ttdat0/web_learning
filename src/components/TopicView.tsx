@@ -33,7 +33,9 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
   ));
 
   // Thẻ lấp đầy khung Stack → cỡ chữ tính theo chiều rộng khung.
-  const cardSize = Math.min(vw, 720) - 16;
+  // Khung Stack rộng tối đa 560px (CSS .stack-wrap), nên var phải theo đúng
+  // chiều rộng thực tế của thẻ, không phải chiều rộng viewport.
+  const cardSize = Math.min(vw - 16, 560);
 
   const handleTap = (index: number) => {
     const item = topic.items[index];

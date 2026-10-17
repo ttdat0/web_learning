@@ -10,6 +10,8 @@ export interface LearnItem {
   id: string;
   /** Từ hiển thị chính trên thẻ, vd: "A", "1", "Màu đỏ", "Con mèo" */
   label: string;
+  /** Chữ in hoa đặt ở góc thẻ (danh mục chữ cái) — vd: "G" khi chữ giữa là "g" */
+  corner?: string;
   /** Từ ví dụ phụ, vd: "Áo", "Một" */
   sub?: string;
   subEmoji?: string;
@@ -38,35 +40,35 @@ export const TOPICS: Topic[] = [
     desc: 'Học 29 chữ cái tiếng Việt',
     gradient: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)',
     items: [
-      { id: 'a', label: 'A', sub: 'Áo', subEmoji: '👕', visual: { kind: 'text', text: 'A' }, speak: 'A. Áo' },
-      { id: 'ă', label: 'Ă', sub: 'Ăn', subEmoji: '🍚', visual: { kind: 'text', text: 'Ă' }, speak: 'Ă. Ăn cơm' },
-      { id: 'â', label: 'Â', sub: 'Âm nhạc', subEmoji: '🎵', visual: { kind: 'text', text: 'Â' }, speak: 'Â. Âm nhạc' },
-      { id: 'b', label: 'B', sub: 'Bóng', subEmoji: '⚽', visual: { kind: 'text', text: 'B' }, speak: 'Bờ. Quả bóng' },
-      { id: 'c', label: 'C', sub: 'Cá', subEmoji: '🐟', visual: { kind: 'text', text: 'C' }, speak: 'Cờ. Con cá' },
-      { id: 'd', label: 'D', sub: 'Diều', subEmoji: '🪁', visual: { kind: 'text', text: 'D' }, speak: 'Dờ. Con diều' },
-      { id: 'đ', label: 'Đ', sub: 'Đèn', subEmoji: '💡', visual: { kind: 'text', text: 'Đ' }, speak: 'Đờ. Cái đèn' },
-      { id: 'e', label: 'E', sub: 'Ếch', subEmoji: '🐸', visual: { kind: 'text', text: 'E' }, speak: 'E. Con ếch' },
-      { id: 'ê', label: 'Ê', sub: 'Bể', subEmoji: '🐠', visual: { kind: 'text', text: 'Ê' }, speak: 'Ê. Bể cá' },
-      { id: 'g', label: 'G', sub: 'Gà', subEmoji: '🐔', visual: { kind: 'text', text: 'G' }, speak: 'Gờ. Con gà' },
-      { id: 'h', label: 'H', sub: 'Hoa', subEmoji: '🌸', visual: { kind: 'text', text: 'H' }, speak: 'Hờ. Bông hoa' },
-      { id: 'i', label: 'I', sub: 'Im', subEmoji: '🤫', visual: { kind: 'text', text: 'I' }, speak: 'I. Im lặng' },
-      { id: 'k', label: 'K', sub: 'Kẹo', subEmoji: '🍬', visual: { kind: 'text', text: 'K' }, speak: 'Cờ. Cái kẹo' },
-      { id: 'l', label: 'L', sub: 'Lá', subEmoji: '🍃', visual: { kind: 'text', text: 'L' }, speak: 'Lờ. Chiếc lá' },
-      { id: 'm', label: 'M', sub: 'Mèo', subEmoji: '🐱', visual: { kind: 'text', text: 'M' }, speak: 'Mờ. Con mèo' },
-      { id: 'n', label: 'N', sub: 'Nón', subEmoji: '👒', visual: { kind: 'text', text: 'N' }, speak: 'Nờ. Cái nón' },
-      { id: 'o', label: 'O', sub: 'Ong', subEmoji: '🐝', visual: { kind: 'text', text: 'O' }, speak: 'O. Con ong' },
-      { id: 'ô', label: 'Ô', sub: 'Ô tô', subEmoji: '🚗', visual: { kind: 'text', text: 'Ô' }, speak: 'Ô. Ô tô' },
-      { id: 'ơ', label: 'Ơ', sub: 'Ơn', subEmoji: '🙏', visual: { kind: 'text', text: 'Ơ' }, speak: 'Ơ. Cảm ơn' },
-      { id: 'p', label: 'P', sub: 'Pin', subEmoji: '🔋', visual: { kind: 'text', text: 'P' }, speak: 'Pờ. Cục pin' },
-      { id: 'q', label: 'Q', sub: 'Quả', subEmoji: '🍎', visual: { kind: 'text', text: 'Q' }, speak: 'Quờ. Quả táo' },
-      { id: 'r', label: 'R', sub: 'Rùa', subEmoji: '🐢', visual: { kind: 'text', text: 'R' }, speak: 'Rờ. Con rùa' },
-      { id: 's', label: 'S', sub: 'Sữa', subEmoji: '🥛', visual: { kind: 'text', text: 'S' }, speak: 'Sờ. Sữa' },
-      { id: 't', label: 'T', sub: 'Tay', subEmoji: '👋', visual: { kind: 'text', text: 'T' }, speak: 'Tờ. Bàn tay' },
-      { id: 'u', label: 'U', sub: 'Uống', subEmoji: '🥤', visual: { kind: 'text', text: 'U' }, speak: 'U. Uống nước' },
-      { id: 'ư', label: 'Ư', sub: 'Ướt', subEmoji: '💧', visual: { kind: 'text', text: 'Ư' }, speak: 'Ư. Bị ướt' },
-      { id: 'v', label: 'V', sub: 'Vịt', subEmoji: '🦆', visual: { kind: 'text', text: 'V' }, speak: 'Vờ. Con vịt' },
-      { id: 'x', label: 'X', sub: 'Xe đạp', subEmoji: '🚲', visual: { kind: 'text', text: 'X' }, speak: 'Xờ. Xe đạp' },
-      { id: 'y', label: 'Y', sub: 'Yêu', subEmoji: '❤️', visual: { kind: 'text', text: 'Y' }, speak: 'I. Yêu thương' }
+      { id: 'a', label: 'A', corner: 'A', sub: 'Áo', subEmoji: '👕', visual: { kind: 'text', text: 'a' }, speak: 'A. Áo' },
+      { id: 'ă', label: 'Ă', corner: 'Ă', sub: 'Ăn', subEmoji: '🍚', visual: { kind: 'text', text: 'ă' }, speak: 'Ă. Ăn cơm' },
+      { id: 'â', label: 'Â', corner: 'Â', sub: 'Âm nhạc', subEmoji: '🎵', visual: { kind: 'text', text: 'â' }, speak: 'Â. Âm nhạc' },
+      { id: 'b', label: 'B', corner: 'B', sub: 'Bóng', subEmoji: '⚽', visual: { kind: 'text', text: 'b' }, speak: 'Bờ. Quả bóng' },
+      { id: 'c', label: 'C', corner: 'C', sub: 'Cá', subEmoji: '🐟', visual: { kind: 'text', text: 'c' }, speak: 'Cờ. Con cá' },
+      { id: 'd', label: 'D', corner: 'D', sub: 'Diều', subEmoji: '🪁', visual: { kind: 'text', text: 'd' }, speak: 'Dờ. Con diều' },
+      { id: 'đ', label: 'Đ', corner: 'Đ', sub: 'Đèn', subEmoji: '💡', visual: { kind: 'text', text: 'đ' }, speak: 'Đờ. Cái đèn' },
+      { id: 'e', label: 'E', corner: 'E', sub: 'Ếch', subEmoji: '🐸', visual: { kind: 'text', text: 'e' }, speak: 'E. Con ếch' },
+      { id: 'ê', label: 'Ê', corner: 'Ê', sub: 'Bể', subEmoji: '🐠', visual: { kind: 'text', text: 'ê' }, speak: 'Ê. Bể cá' },
+      { id: 'g', label: 'G', corner: 'G', sub: 'Gà', subEmoji: '🐔', visual: { kind: 'text', text: 'g' }, speak: 'Gờ. Con gà' },
+      { id: 'h', label: 'H', corner: 'H', sub: 'Hoa', subEmoji: '🌸', visual: { kind: 'text', text: 'h' }, speak: 'Hờ. Bông hoa' },
+      { id: 'i', label: 'I', corner: 'I', sub: 'Im', subEmoji: '🤫', visual: { kind: 'text', text: 'i' }, speak: 'I. Im lặng' },
+      { id: 'k', label: 'K', corner: 'K', sub: 'Kẹo', subEmoji: '🍬', visual: { kind: 'text', text: 'k' }, speak: 'Cờ. Cái kẹo' },
+      { id: 'l', label: 'L', corner: 'L', sub: 'Lá', subEmoji: '🍃', visual: { kind: 'text', text: 'l' }, speak: 'Lờ. Chiếc lá' },
+      { id: 'm', label: 'M', corner: 'M', sub: 'Mèo', subEmoji: '🐱', visual: { kind: 'text', text: 'm' }, speak: 'Mờ. Con mèo' },
+      { id: 'n', label: 'N', corner: 'N', sub: 'Nón', subEmoji: '👒', visual: { kind: 'text', text: 'n' }, speak: 'Nờ. Cái nón' },
+      { id: 'o', label: 'O', corner: 'O', sub: 'Ong', subEmoji: '🐝', visual: { kind: 'text', text: 'o' }, speak: 'O. Con ong' },
+      { id: 'ô', label: 'Ô', corner: 'Ô', sub: 'Ô tô', subEmoji: '🚗', visual: { kind: 'text', text: 'ô' }, speak: 'Ô. Ô tô' },
+      { id: 'ơ', label: 'Ơ', corner: 'Ơ', sub: 'Ơn', subEmoji: '🙏', visual: { kind: 'text', text: 'ơ' }, speak: 'Ơ. Cảm ơn' },
+      { id: 'p', label: 'P', corner: 'P', sub: 'Pin', subEmoji: '🔋', visual: { kind: 'text', text: 'p' }, speak: 'Pờ. Cục pin' },
+      { id: 'q', label: 'Q', corner: 'Q', sub: 'Quả', subEmoji: '🍎', visual: { kind: 'text', text: 'q' }, speak: 'Quờ. Quả táo' },
+      { id: 'r', label: 'R', corner: 'R', sub: 'Rùa', subEmoji: '🐢', visual: { kind: 'text', text: 'r' }, speak: 'Rờ. Con rùa' },
+      { id: 's', label: 'S', corner: 'S', sub: 'Sữa', subEmoji: '🥛', visual: { kind: 'text', text: 's' }, speak: 'Sờ. Sữa' },
+      { id: 't', label: 'T', corner: 'T', sub: 'Tay', subEmoji: '👋', visual: { kind: 'text', text: 't' }, speak: 'Tờ. Bàn tay' },
+      { id: 'u', label: 'U', corner: 'U', sub: 'Uống', subEmoji: '🥤', visual: { kind: 'text', text: 'u' }, speak: 'U. Uống nước' },
+      { id: 'ư', label: 'Ư', corner: 'Ư', sub: 'Ướt', subEmoji: '💧', visual: { kind: 'text', text: 'ư' }, speak: 'Ư. Bị ướt' },
+      { id: 'v', label: 'V', corner: 'V', sub: 'Vịt', subEmoji: '🦆', visual: { kind: 'text', text: 'v' }, speak: 'Vờ. Con vịt' },
+      { id: 'x', label: 'X', corner: 'X', sub: 'Xe đạp', subEmoji: '🚲', visual: { kind: 'text', text: 'x' }, speak: 'Xờ. Xe đạp' },
+      { id: 'y', label: 'Y', corner: 'Y', sub: 'Yêu', subEmoji: '❤️', visual: { kind: 'text', text: 'y' }, speak: 'I. Yêu thương' }
     ]
   },
   {

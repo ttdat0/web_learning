@@ -343,6 +343,36 @@ button {
   z-index: 1;
 }
 
+/* Chữ in hoa ở góc thẻ (danh mục chữ cái) — huy hiệu tròn trắng. */
+.learn-card__corner {
+  position: absolute;
+  top: 0.6em;
+  left: 0.6em;
+  z-index: 2;
+  min-width: 1.6em;
+  height: 1.6em;
+  padding: 0 0.3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--ink);
+  font-size: 0.85em;
+  font-weight: 800;
+  line-height: 1;
+  border-radius: 999px;
+  box-shadow: 0 0.15em 0.4em rgba(0, 0, 0, 0.16);
+}
+
+/* Thẻ chữ cái: chữ thường ở giữa to hơn cho dễ đọc. */
+.learn-card--abc .learn-visual {
+  min-height: 7.6em;
+}
+
+.learn-card--abc .learn-visual__text {
+  font-size: 7em;
+}
+
 .learn-card--big {
   font-size: calc(var(--stack-card-size, var(--bounce-cards-size, 160px)) * 0.14);
 }

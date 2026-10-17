@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import type { ReactNode } from 'react';
 import './HoloCard.css';
 
@@ -51,6 +51,25 @@ export default function HoloCard({ children }: HoloCardProps) {
     cancelAnimationFrame(rafRef.current);
     setPose(0.5, 0.5, false);
   };
+
+  // Stack đặt pointer capture lên thẻ của nó khi vuốt, nên pointerup có thể
+  // không tới được thẻ holo → hiệu ứng trắng bị kẹt lại. Nghe ở window để
+  // luôn reset khi nhấc tay, tránh thẻ bị "trắng" sau khi vuốt nhanh.
+  useEffect(() => {
+    const onUp = () => {
+      cancelAnimationFrame(rafRef.current);
+      const tilt = tiltRef.current;
+      if (!tilt) return;
+      tilt.style.setProperty('--holo-o', '0');
+      tilt.classList.remove('is-active');
+    };
+    window.addEventListener('pointerup', onUp);
+    window.addEventListener('pointercancel', onUp);
+    return () => {
+      window.removeEventListener('pointerup', onUp);
+      window.removeEventListener('pointercancel', onUp);
+    };
+  }, []);
 
   return (
     <div

@@ -4,6 +4,9 @@
  * Thay đổi cho Bé Học Vui:
  * - Thêm prop `onCardClick(index)` — gọi khi chạm (không kéo) vào thẻ trên cùng,
  *   để phát âm thay vì lật thẻ.
+ * - `turn()`: hạ z-index xuống đáy ngay khi thẻ quay về (keepZ: false) thay vì
+ *   chờ `land()` — tránh "bóng trắng" của thẻ đang mờ dần nổi trên cả bộ bài
+ *   khi vuốt nhanh liên tục.
  * - Bỏ dòng 'use client' (không dùng Next.js).
  */
 /* eslint-disable react-hooks/refs */
@@ -415,7 +418,9 @@ export default function Stack({
     const turn = () => {
       flight.turned = true;
       const position = orderRef.current.indexOf(top);
-      if (position >= 0) placeCard(top, position, { kind: 'tuck', keepZ: !landed });
+      // Hạ z xuống đáy ngay khi quay về: thẻ đang mờ dần mà còn nổi trên cùng
+      // sẽ thành "bóng trắng" phủ lên cả bộ bài khi vuốt nhanh liên tục.
+      if (position >= 0) placeCard(top, position, { kind: 'tuck', keepZ: false });
     };
     const land = () => {
       landed = true;
