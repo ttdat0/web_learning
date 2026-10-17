@@ -1,10 +1,12 @@
 import Carousel from './Carousel/Carousel';
 import TopicCard from './TopicCard';
+import FullscreenButton from './FullscreenButton';
 import { TOPICS, type Topic } from '../data/topics';
 
 export default function HomeView({ onSelect }: { onSelect: (topic: Topic) => void }) {
   return (
     <main className="home">
+      <FullscreenButton className="fs-btn--float" />
       <header className="hero">
         <div className="hero__balloon" aria-hidden="true">
           🎈

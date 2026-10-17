@@ -82,6 +82,7 @@ button {
 
 /* ---------- hero trang chủ ---------- */
 .home {
+  position: relative;
   padding-bottom: 12px;
 }
 
@@ -173,6 +174,13 @@ button {
   background-clip: text;
   color: transparent;
   filter: drop-shadow(0 2px 0 rgba(255, 255, 255, 0.85));
+}
+
+/* Cụm tên danh mục + nút toàn màn hình ở góc phải topbar. */
+.topic-topbar__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .back-btn {

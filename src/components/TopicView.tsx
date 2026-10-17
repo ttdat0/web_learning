@@ -3,6 +3,7 @@ import type { CSSProperties } from 'react';
 import Stack from './Stack/Stack';
 import HoloCard from './HoloCard/HoloCard';
 import LearnCard from './LearnCard';
+import FullscreenButton from './FullscreenButton';
 import type { Topic } from '../data/topics';
 import { speak } from '../lib/speak';
 
@@ -50,9 +51,12 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
           </span>
           Trang chủ
         </button>
-        <h2 className="topic-topbar__name" style={{ backgroundImage: topic.gradient }}>
-          {topic.name}
-        </h2>
+        <div className="topic-topbar__right">
+          <h2 className="topic-topbar__name" style={{ backgroundImage: topic.gradient }}>
+            {topic.name}
+          </h2>
+          <FullscreenButton />
+        </div>
       </header>
 
       <section
