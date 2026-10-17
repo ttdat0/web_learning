@@ -40,7 +40,7 @@ export const TOPICS: Topic[] = [
     items: [
       { id: 'a', label: 'A', sub: 'Áo', subEmoji: '👕', visual: { kind: 'text', text: 'A' }, speak: 'A. Áo' },
       { id: 'ă', label: 'Ă', sub: 'Ăn', subEmoji: '🍚', visual: { kind: 'text', text: 'Ă' }, speak: 'Ă. Ăn cơm' },
-      { id: 'â', label: 'Â', sub: 'Nhạc', subEmoji: '🎵', visual: { kind: 'text', text: 'Â' }, speak: 'Â. Âm nhạc' },
+      { id: 'â', label: 'Â', sub: 'Âm nhạc', subEmoji: '🎵', visual: { kind: 'text', text: 'Â' }, speak: 'Â. Âm nhạc' },
       { id: 'b', label: 'B', sub: 'Bóng', subEmoji: '⚽', visual: { kind: 'text', text: 'B' }, speak: 'Bê. Quả bóng' },
       { id: 'c', label: 'C', sub: 'Cá', subEmoji: '🐟', visual: { kind: 'text', text: 'C' }, speak: 'Xê. Con cá' },
       { id: 'd', label: 'D', sub: 'Diều', subEmoji: '🪁', visual: { kind: 'text', text: 'D' }, speak: 'Dê. Con diều' },
