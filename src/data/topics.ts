@@ -47,7 +47,7 @@ export const TOPICS: Topic[] = [
       { id: 'c', label: 'C', corner: 'C', sub: 'Cá', subEmoji: '🐟', visual: { kind: 'text', text: 'c' }, speak: 'Cờ. Con cá' },
       { id: 'd', label: 'D', corner: 'D', sub: 'Diều', subEmoji: '🪁', visual: { kind: 'text', text: 'd' }, speak: 'Dờ. Con diều' },
       { id: 'đ', label: 'Đ', corner: 'Đ', sub: 'Đèn', subEmoji: '💡', visual: { kind: 'text', text: 'đ' }, speak: 'Đờ. Cái đèn' },
-      { id: 'e', label: 'E', corner: 'E', sub: 'Ếch', subEmoji: '🐸', visual: { kind: 'text', text: 'e' }, speak: 'E. Con ếch' },
+      { id: 'e', label: 'E', corner: 'E', sub: 'Em bé', subEmoji: '👶', visual: { kind: 'text', text: 'e' }, speak: 'E. Em bé' },
       { id: 'ê', label: 'Ê', corner: 'Ê', sub: 'Bể', subEmoji: '🐠', visual: { kind: 'text', text: 'ê' }, speak: 'Ê. Bể cá' },
       { id: 'g', label: 'G', corner: 'G', sub: 'Gà', subEmoji: '🐔', visual: { kind: 'text', text: 'g' }, speak: 'Gờ. Con gà' },
       { id: 'h', label: 'H', corner: 'H', sub: 'Hoa', subEmoji: '🌸', visual: { kind: 'text', text: 'h' }, speak: 'Hờ. Bông hoa' },
