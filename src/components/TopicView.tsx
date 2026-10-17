@@ -21,7 +21,8 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
 
   const pageItems = pages[page] ?? [];
   const fan = useFanSize(pageItems.length);
-  const goPage = (dir: 1 | -1) => setPage((page + dir + pages.length) % pages.length);
+  const goPage = (dir: 1 | -1) =>
+    setPage(p => (p + dir + pages.length) % pages.length);
 
   return (
     <main className="topic-view">
@@ -79,6 +80,9 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
               />
             ))}
           </div>
+          <span className="pager__label">
+            {page + 1} / {pages.length}
+          </span>
           <button className="nav-btn nav-btn--sm" onClick={() => goPage(1)} aria-label="Trang tiếp">
             ▶
           </button>

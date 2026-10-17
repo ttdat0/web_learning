@@ -263,8 +263,8 @@ button {
 }
 
 .pager__dot {
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   border: none;
   background: rgba(255, 255, 255, 0.75);
@@ -272,6 +272,14 @@ button {
   cursor: pointer;
   padding: 0;
   transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.pager__label {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  min-width: 56px;
+  text-align: center;
 }
 
 .pager__dot--active {
