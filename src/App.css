@@ -196,17 +196,19 @@ button {
   place-items: center;
   width: 44px;
   height: 44px;
-  padding: 0 2px 0 0;
+  padding: 0;
   border: none;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.92);
   color: #0284c7;
-  font-size: 1.35rem;
-  font-weight: 800;
-  line-height: 1;
   cursor: pointer;
   box-shadow: 0 6px 16px -6px rgba(2, 132, 199, 0.45);
   transition: transform 0.15s ease;
+}
+
+.back-btn--icon svg {
+  width: 22px;
+  height: 22px;
 }
 
 .back-btn--icon:hover {

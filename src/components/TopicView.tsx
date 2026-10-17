@@ -46,7 +46,10 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
     <main className="topic-view">
       <header className="topic-topbar">
         <button className="back-btn--icon" onClick={onBack} aria-label="Về trang chủ">
-          ←
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="m12 19-7-7 7-7" />
+            <path d="M19 12H5" />
+          </svg>
         </button>
         <h2 className="topic-topbar__name" style={{ backgroundImage: topic.gradient }}>
           {topic.name}

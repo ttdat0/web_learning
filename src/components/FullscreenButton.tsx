@@ -78,24 +78,26 @@ function detectApi(): FsApi {
   return noopApi;
 }
 
+/* Icon phóng to: 4 mũi tên chéo hướng ra ngoài (phong cách Lucide). */
 function ExpandIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M8 3H5a2 2 0 0 0-2 2v3" />
-      <path d="M21 8V5a2 2 0 0 0-2-2h-3" />
-      <path d="M3 16v3a2 2 0 0 0 2 2h3" />
-      <path d="M16 21h3a2 2 0 0 0 2-2v-3" />
+      <path d="M15 3h6v6" />
+      <path d="M9 21H3v-6" />
+      <path d="M21 3l-7 7" />
+      <path d="M3 21l7-7" />
     </svg>
   );
 }
 
+/* Icon thu nhỏ: 4 mũi tên chéo hướng vào trong. */
 function CompressIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M8 3v3a2 2 0 0 1-2 2H3" />
-      <path d="M21 8h-3a2 2 0 0 1-2-2V3" />
-      <path d="M3 16h3a2 2 0 0 1 2 2v3" />
-      <path d="M16 21v-3a2 2 0 0 1 2-2h3" />
+      <path d="M4 14h6v6" />
+      <path d="M20 10h-6V4" />
+      <path d="M14 10l7-7" />
+      <path d="M3 21l7-7" />
     </svg>
   );
 }
