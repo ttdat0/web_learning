@@ -74,12 +74,12 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
           onCardClick={handleTap}
           onChange={setTopIndex}
         />
-        <p className="stack-counter">
-          Thẻ {topIndex + 1} / {count}
-        </p>
       </section>
 
       <footer className="footer">💛 Bé Học Vui — học mà chơi, chơi mà học</footer>
+      <p className="stack-counter">
+        Thẻ {topIndex + 1} / {count}
+      </p>
       <p className="stack-hint stack-hint--below">
         👆 Chạm vào thẻ để nghe · 👉 Vuốt để lật thẻ tiếp theo
       </p>
