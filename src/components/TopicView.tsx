@@ -1,9 +1,9 @@
 import { useMemo, useRef, useState, type SyntheticEvent, type TouchEvent } from 'react';
 import BounceCards from './BounceCards/BounceCards';
 import LearnCard from './LearnCard';
-import ItemModal from './ItemModal';
 import type { LearnItem, Topic } from '../data/topics';
 import { useFanSize } from '../hooks/useFanSize';
+import { speak } from '../lib/speak';
 
 /** Số thẻ tối đa trên một trang quạt (để thẻ luôn đủ to, dễ chạm). */
 const PAGE_SIZE = 5;
@@ -20,7 +20,6 @@ function paginate<T>(items: T[], size: number): T[][] {
 export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () => void }) {
   const pages = useMemo(() => paginate<LearnItem>(topic.items, PAGE_SIZE), [topic]);
   const [page, setPage] = useState(0);
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const gestureRef = useRef<{ x: number; y: number; swiped: boolean } | null>(null);
   const lastSwipeAt = useRef(0);
 
@@ -120,7 +119,10 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
           hoverScale={1.12}
           borderWidth={6}
           radius={30}
-          onCardClick={i => setOpenIndex(page * PAGE_SIZE + i)}
+          onCardClick={i => {
+            const item = pageItems[i];
+            if (item) speak(item.speak);
+          }}
           style={{ width: '100%', maxWidth: 560, margin: '0 auto' }}
         />
         {pages.length > 1 && (
@@ -134,15 +136,6 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
           </div>
         )}
       </section>
-
-      {openIndex !== null && (
-        <ItemModal
-          topic={topic}
-          index={openIndex}
-          onClose={() => setOpenIndex(null)}
-          onNavigate={setOpenIndex}
-        />
-      )}
     </main>
   );
 }
