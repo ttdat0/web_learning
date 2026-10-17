@@ -1,12 +1,9 @@
-import { useState } from 'react';
 import Carousel from './Carousel/Carousel';
 import LearnCard from './LearnCard';
-import ItemModal from './ItemModal';
 import type { Topic } from '../data/topics';
+import { speak } from '../lib/speak';
 
 export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () => void }) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   return (
     <main className="topic-view">
       <div className="topic-view__topbar">
@@ -30,7 +27,10 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
           items={topic.items.map(item => (
             <LearnCard key={item.id} item={item} topic={topic} />
           ))}
-          onCardClick={i => setOpenIndex(i)}
+          onCardClick={i => {
+            const item = topic.items[i];
+            if (item) speak(item.speak);
+          }}
           baseWidth={560}
           aspectRatio={1.05}
           peek={44}
@@ -45,15 +45,6 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
           style={{ width: '100%', maxWidth: 560, margin: '0 auto' }}
         />
       </section>
-
-      {openIndex !== null && (
-        <ItemModal
-          topic={topic}
-          index={openIndex}
-          onClose={() => setOpenIndex(null)}
-          onNavigate={setOpenIndex}
-        />
-      )}
     </main>
   );
 }

@@ -5,8 +5,9 @@
  *
  * Điều chỉnh cho "Bé Học Vui":
  * - Bỏ dependency @hugeicons (thay bằng SVG/emoji nội bộ, app không cần thêm package).
- * - Thêm prop `onCardClick(index)`: nhấn vào thẻ (kể cả thẻ đang ở giữa) sẽ gọi
- *   callback này; khi không truyền prop thì giữ hành vi gốc (nhấn thẻ bên → focus).
+ * - Thêm prop `onCardClick(index)`: nhấn vào thẻ nào cũng gọi callback này
+ *   (nhấn thẻ bên thì đồng thời đưa nó ra giữa); khi không truyền prop thì giữ
+ *   hành vi gốc (nhấn thẻ bên → focus).
  * - Mỗi slide đặt biến `--bounce-cards-size` = chiều rộng thẻ để component
  *   LearnCard (dùng đơn vị em) co giãn đúng tỉ lệ, không tràn chữ.
  */
@@ -902,10 +903,12 @@ export default function Carousel({
                 aria-roledescription="slide"
                 aria-label={`${index + 1} of ${count}`}
                 onClick={() => {
-                  // Nhấn thẻ nào cũng mở chi tiết (kể cả thẻ bên); không có
-                  // onCardClick thì giữ hành vi gốc: nhấn thẻ bên để focus.
-                  if (onCardClick) onCardClick(index);
-                  else if (index !== active) engineRef.current?.goTo(index);
+                  // Nhấn thẻ nào cũng gọi onCardClick; nhấn thẻ bên thì đồng
+                  // thời đưa nó ra giữa. Không có onCardClick = hành vi gốc.
+                  if (onCardClick) {
+                    if (index !== active) engineRef.current?.goTo(index);
+                    onCardClick(index);
+                  } else if (index !== active) engineRef.current?.goTo(index);
                 }}
               >
                 <Card item={item} round={round} compact={round && cardWidth < 240} />
