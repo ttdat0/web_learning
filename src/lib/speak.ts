@@ -1,23 +1,47 @@
-import { AUDIO_IDS } from './audioManifest';
-
 /**
  * Phát âm tiếng Việt.
- * - Nếu thẻ đã có file giọng thu sẵn (public/audio/<id>.mp3) thì phát file.
+ * - Nếu có file giọng thu sẵn (public/audio/<id>.mp3) thì phát file.
  * - Ngược lại dùng giọng TTS có sẵn của trình duyệt (Web Speech API).
+ * Tự kiểm tra file 1 lần rồi nhớ kết quả trong phiên, nên chỉ cần
+ * thả file mp3 đúng tên vào public/audio/ là app dùng ngay, không cần
+ * sửa code hay khai báo gì thêm.
  */
 export function speak(text: string, id?: string) {
-  if (id && AUDIO_IDS.has(id)) {
-    playAudioFile(id, () => speakTts(text));
+  stopSpeak();
+  if (!id) {
+    speakTts(text);
     return;
   }
-  speakTts(text);
+  void hasAudio(id).then(ok => {
+    if (ok) playAudioFile(id, () => speakTts(text));
+    else speakTts(text);
+  });
+}
+
+/** Nhớ kết quả kiểm tra file trong phiên để không request lại. */
+const audioCache = new Map<string, boolean>();
+
+async function hasAudio(id: string): Promise<boolean> {
+  const cached = audioCache.get(id);
+  if (cached !== undefined) return cached;
+  try {
+    const res = await fetch(`audio/${id}.mp3`, { method: 'HEAD' });
+    // Dev server / static host có thể trả index.html (text/html) cho file
+    // không tồn tại (SPA fallback) — loại trường hợp này ra.
+    const ct = res.headers.get('content-type') || '';
+    const ok = res.ok && !ct.includes('html');
+    audioCache.set(id, ok);
+    return ok;
+  } catch {
+    audioCache.set(id, false);
+    return false;
+  }
 }
 
 let currentAudio: HTMLAudioElement | null = null;
 
 function playAudioFile(id: string, onError: () => void) {
   try {
-    stopSpeak();
     const audio = new Audio(`audio/${id}.mp3`);
     currentAudio = audio;
     audio.addEventListener(
