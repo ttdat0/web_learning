@@ -1,50 +1,68 @@
-import Carousel from './Carousel/Carousel';
+import { useEffect, useState } from 'react';
+import DepthCarousel from './DepthCarousel/DepthCarousel';
 import LearnCard from './LearnCard';
 import type { Topic } from '../data/topics';
 import { speak } from '../lib/speak';
 
+/** Cỡ thẻ theo màn hình: điện thoại thẻ vừa, tablet/máy tính thẻ bự. */
+function useDepthSize() {
+  const [vw, setVw] = useState(() =>
+    typeof window === 'undefined' ? 424 : window.innerWidth
+  );
+  useEffect(() => {
+    const onResize = () => setVw(window.innerWidth);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+  return vw < 600
+    ? { cardWidth: 340, cardHeight: 400, spread: 40 }
+    : { cardWidth: 460, cardHeight: 540, spread: 55 };
+}
+
 export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () => void }) {
+  const size = useDepthSize();
+
   return (
     <main className="topic-view">
-      <div className="topic-view__topbar">
-        <button className="back-btn" onClick={onBack} aria-label="Về trang chủ">
-          ← Trang chủ
+      <header className="topic-topbar">
+        <button className="back-btn back-btn--fresh" onClick={onBack} aria-label="Về trang chủ">
+          <span className="back-btn__arrow" aria-hidden="true">
+            ←
+          </span>
+          Trang chủ
         </button>
-      </div>
-
-      <header className="topic-hero">
-        <div className="topic-hero__badge" style={{ background: topic.gradient }}>
-          {topic.icon}
-        </div>
-        <h2 className="topic-hero__title">{topic.name}</h2>
-        <p className="topic-hero__desc">
-          {topic.desc} — vuốt để lật thẻ, nhấn vào thẻ để nghe phát âm 🔊
-        </p>
+        <h2 className="topic-topbar__name" style={{ backgroundImage: topic.gradient }}>
+          {topic.name}
+        </h2>
       </header>
 
-      <section className="carousel-wrap" aria-label={`Thẻ học chủ đề ${topic.name}`}>
-        <Carousel
-          items={topic.items.map(item => (
-            <LearnCard key={item.id} item={item} topic={topic} />
-          ))}
+      <section
+        className="depth-wrap"
+        style={{ height: size.cardHeight + 24 }}
+        aria-label={`Thẻ học chủ đề ${topic.name}`}
+      >
+        <DepthCarousel
+          items={topic.items.map(item => ({
+            content: <LearnCard key={item.id} item={item} topic={topic} />
+          }))}
           onCardClick={i => {
             const item = topic.items[i];
             if (item) speak(item.speak);
           }}
-          baseWidth={560}
-          aspectRatio={1.05}
-          peek={44}
-          gap={18}
+          cardWidth={size.cardWidth}
+          cardHeight={size.cardHeight}
           radius={30}
-          frame={false}
-          effect="tilt"
-          indicator="counter"
-          arrows={false}
+          depth={240}
+          spread={size.spread}
+          tilt={20}
+          visibleCards={3}
+          blur={5}
           loop
-          theme="light"
-          style={{ width: '100%', maxWidth: 560, margin: '0 auto' }}
+          showControls={false}
+          showIndicators={false}
         />
       </section>
+      <p className="depth-hint">👉 Vuốt để lật thẻ, nhấn vào thẻ để nghe phát âm 🔊</p>
     </main>
   );
 }
