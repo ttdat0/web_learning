@@ -40,7 +40,7 @@ export const TOPICS: Topic[] = [
     desc: 'Học 29 chữ cái tiếng Việt',
     gradient: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)',
     items: [
-      { id: 'a', label: 'A', corner: 'A', sub: 'Áo', subEmoji: '👕', visual: { kind: 'text', text: 'a' }, speak: 'A. Áo' },
+      { id: 'a', label: 'A', corner: 'A', sub: 'Ao', subEmoji: '🏞️', visual: { kind: 'text', text: 'a' }, speak: 'A. Cái ao' },
       { id: 'ă', label: 'Ă', corner: 'Ă', sub: 'Ăn', subEmoji: '🍚', visual: { kind: 'text', text: 'ă' }, speak: 'Ă. Ăn cơm' },
       { id: 'â', label: 'Â', corner: 'Â', sub: 'Âm nhạc', subEmoji: '🎵', visual: { kind: 'text', text: 'â' }, speak: 'Â. Âm nhạc' },
       { id: 'b', label: 'B', corner: 'B', sub: 'Bóng', subEmoji: '⚽', visual: { kind: 'text', text: 'b' }, speak: 'Bờ. Quả bóng' },
@@ -48,7 +48,7 @@ export const TOPICS: Topic[] = [
       { id: 'd', label: 'D', corner: 'D', sub: 'Diều', subEmoji: '🪁', visual: { kind: 'text', text: 'd' }, speak: 'Dờ. Con diều' },
       { id: 'đ', label: 'Đ', corner: 'Đ', sub: 'Đèn', subEmoji: '💡', visual: { kind: 'text', text: 'đ' }, speak: 'Đờ. Cái đèn' },
       { id: 'e', label: 'E', corner: 'E', sub: 'Em bé', subEmoji: '👶', visual: { kind: 'text', text: 'e' }, speak: 'E. Em bé' },
-      { id: 'ê', label: 'Ê', corner: 'Ê', sub: 'Bể', subEmoji: '🐠', visual: { kind: 'text', text: 'ê' }, speak: 'Ê. Bể cá' },
+      { id: 'ê', label: 'Ê', corner: 'Ê', sub: 'Ê!', subEmoji: '👋', visual: { kind: 'text', text: 'ê' }, speak: 'Ê. Ê!' },
       { id: 'g', label: 'G', corner: 'G', sub: 'Gà', subEmoji: '🐔', visual: { kind: 'text', text: 'g' }, speak: 'Gờ. Con gà' },
       { id: 'h', label: 'H', corner: 'H', sub: 'Hoa', subEmoji: '🌸', visual: { kind: 'text', text: 'h' }, speak: 'Hờ. Bông hoa' },
       { id: 'i', label: 'I', corner: 'I', sub: 'Im', subEmoji: '🤫', visual: { kind: 'text', text: 'i' }, speak: 'I. Im lặng' },
