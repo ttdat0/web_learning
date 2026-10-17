@@ -126,6 +126,24 @@ button {
   padding: 4px 12px 0;
 }
 
+/* ---------- carousel thẻ học (React Bits) ---------- */
+.carousel-wrap {
+  padding: 6px 8px 0;
+}
+
+/* Bộ đếm thẻ to, rõ cho bé */
+.carousel-wrap .carousel-counter {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--ink-soft);
+}
+
+.carousel-wrap .carousel-counter-current {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+
 .fan-hint {
   text-align: center;
   color: var(--ink-soft);
@@ -248,27 +266,7 @@ button {
   font-size: 1.05rem;
 }
 
-/* ---------- chấm chỉ báo trang (vuốt ngang để chuyển trang) ---------- */
-.page-dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px 0 4px;
-}
 
-.page-dots__dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.7);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-.page-dots__dot--active {
-  background: #f59e0b;
-  transform: scale(1.35);
-}
 
 /* ---------- mặt thẻ học ----------
    Mọi kích thước chữ dùng đơn vị em, co giãn theo đúng kích thước thẻ
