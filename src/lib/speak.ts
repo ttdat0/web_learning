@@ -8,7 +8,10 @@ export function speak(text: string) {
     utter.rate = 0.9;
     utter.pitch = 1.1;
     const voices = window.speechSynthesis.getVoices();
-    const viVoice = voices.find(v => v.lang.toLowerCase().startsWith('vi'));
+    const viVoices = voices.filter(v => v.lang.toLowerCase().startsWith('vi'));
+    // Ưu tiên giọng Google Tiếng Việt (rõ và tự nhiên nhất), rồi mới tới giọng mặc định.
+    const viVoice =
+      viVoices.find(v => v.name.toLowerCase().includes('google')) ?? viVoices[0];
     if (viVoice) utter.voice = viVoice;
     window.speechSynthesis.speak(utter);
   } catch {
