@@ -1,0 +1,78 @@
+DANH SÁCH CÂU GIỌNG ĐỌC — Bé Học Vui
+Cách đặt tên file: <id>.mp3  (ví dụ: b.mp3, n1.mp3)
+Nội dung thu = đúng cột 'Câu đọc' (kể cả dấu chấm)
+====================================================
+
+## Chữ cái
+a.mp3  →  A. Áo
+ă.mp3  →  Ă. Ăn cơm
+â.mp3  →  Â. Âm nhạc
+b.mp3  →  Bờ. Quả bóng
+c.mp3  →  Cờ. Con cá
+d.mp3  →  Dờ. Con diều
+đ.mp3  →  Đờ. Cái đèn
+e.mp3  →  E. Con ếch
+ê.mp3  →  Ê. Bể cá
+g.mp3  →  Gờ. Con gà
+h.mp3  →  Hờ. Bông hoa
+i.mp3  →  I. Im lặng
+k.mp3  →  Cờ. Cái kẹo
+l.mp3  →  Lờ. Chiếc lá
+m.mp3  →  Mờ. Con mèo
+n.mp3  →  Nờ. Cái nón
+o.mp3  →  O. Con ong
+ô.mp3  →  Ô. Ô tô
+ơ.mp3  →  Ơ. Cảm ơn
+p.mp3  →  Pờ. Cục pin
+q.mp3  →  Quờ. Quả táo
+r.mp3  →  Rờ. Con rùa
+s.mp3  →  Sờ. Sữa
+t.mp3  →  Tờ. Bàn tay
+u.mp3  →  U. Uống nước
+ư.mp3  →  Ư. Bị ướt
+v.mp3  →  Vờ. Con vịt
+x.mp3  →  Xờ. Xe đạp
+y.mp3  →  I. Yêu thương
+
+## Số đếm
+n1.mp3  →  Một
+n2.mp3  →  Hai
+n3.mp3  →  Ba
+n4.mp3  →  Bốn
+n5.mp3  →  Năm
+n6.mp3  →  Sáu
+n7.mp3  →  Bảy
+n8.mp3  →  Tám
+n9.mp3  →  Chín
+n10.mp3  →  Mười
+n11.mp3  →  Mười một
+n12.mp3  →  Mười hai
+n13.mp3  →  Mười ba
+n14.mp3  →  Mười bốn
+n15.mp3  →  Mười lăm
+n16.mp3  →  Mười sáu
+n17.mp3  →  Mười bảy
+n18.mp3  →  Mười tám
+n19.mp3  →  Mười chín
+n20.mp3  →  Hai mươi
+
+## Màu sắc
+do.mp3  →  Màu đỏ
+vang.mp3  →  Màu vàng
+xanh-la.mp3  →  Màu xanh lá
+xanh-duong.mp3  →  Màu xanh dương
+cam.mp3  →  Màu cam
+
+## Con vật
+meo.mp3  →  Con mèo
+cho.mp3  →  Con chó
+ga.mp3  →  Con gà
+vit.mp3  →  Con vịt
+ca.mp3  →  Con cá
+
+## Hình khối
+tron.mp3  →  Hình tròn
+vuong.mp3  →  Hình vuông
+tam-giac.mp3  →  Hình tam giác
+sao.mp3  →  Hình ngôi sao
+trai-tim.mp3  →  Hình trái tim

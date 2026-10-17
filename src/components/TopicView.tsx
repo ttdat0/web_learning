@@ -39,7 +39,7 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
     const item = topic.items[index];
     if (!item) return;
     setTopIndex(index);
-    speak(item.speak);
+    speak(item.speak, item.id);
   };
 
   return (
