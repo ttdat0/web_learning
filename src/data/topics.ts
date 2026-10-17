@@ -13,9 +13,6 @@ export interface LearnItem {
   /** Từ ví dụ phụ, vd: "Áo", "Một" */
   sub?: string;
   subEmoji?: string;
-  /** Dùng cho chủ đề đếm số: số lượng emoji minh họa */
-  count?: number;
-  countEmoji?: string;
   visual: Visual;
   /** Câu đọc phát âm tiếng Việt */
   speak: string;
@@ -79,26 +76,26 @@ export const TOPICS: Topic[] = [
     desc: 'Tập đếm từ 1 đến 20',
     gradient: 'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)',
     items: [
-      { id: 'n1', label: '1', sub: 'Một', count: 1, countEmoji: '🍎', visual: { kind: 'text', text: '1' }, speak: 'Một' },
-      { id: 'n2', label: '2', sub: 'Hai', count: 2, countEmoji: '🍎', visual: { kind: 'text', text: '2' }, speak: 'Hai' },
-      { id: 'n3', label: '3', sub: 'Ba', count: 3, countEmoji: '🍎', visual: { kind: 'text', text: '3' }, speak: 'Ba' },
-      { id: 'n4', label: '4', sub: 'Bốn', count: 4, countEmoji: '🍎', visual: { kind: 'text', text: '4' }, speak: 'Bốn' },
-      { id: 'n5', label: '5', sub: 'Năm', count: 5, countEmoji: '🍎', visual: { kind: 'text', text: '5' }, speak: 'Năm' },
-      { id: 'n6', label: '6', sub: 'Sáu', count: 6, countEmoji: '🍎', visual: { kind: 'text', text: '6' }, speak: 'Sáu' },
-      { id: 'n7', label: '7', sub: 'Bảy', count: 7, countEmoji: '🍎', visual: { kind: 'text', text: '7' }, speak: 'Bảy' },
-      { id: 'n8', label: '8', sub: 'Tám', count: 8, countEmoji: '🍎', visual: { kind: 'text', text: '8' }, speak: 'Tám' },
-      { id: 'n9', label: '9', sub: 'Chín', count: 9, countEmoji: '🍎', visual: { kind: 'text', text: '9' }, speak: 'Chín' },
-      { id: 'n10', label: '10', sub: 'Mười', count: 10, countEmoji: '🍎', visual: { kind: 'text', text: '10' }, speak: 'Mười' },
-      { id: 'n11', label: '11', sub: 'Mười một', count: 11, countEmoji: '🍎', visual: { kind: 'text', text: '11' }, speak: 'Mười một' },
-      { id: 'n12', label: '12', sub: 'Mười hai', count: 12, countEmoji: '🍎', visual: { kind: 'text', text: '12' }, speak: 'Mười hai' },
-      { id: 'n13', label: '13', sub: 'Mười ba', count: 13, countEmoji: '🍎', visual: { kind: 'text', text: '13' }, speak: 'Mười ba' },
-      { id: 'n14', label: '14', sub: 'Mười bốn', count: 14, countEmoji: '🍎', visual: { kind: 'text', text: '14' }, speak: 'Mười bốn' },
-      { id: 'n15', label: '15', sub: 'Mười lăm', count: 15, countEmoji: '🍎', visual: { kind: 'text', text: '15' }, speak: 'Mười lăm' },
-      { id: 'n16', label: '16', sub: 'Mười sáu', count: 16, countEmoji: '🍎', visual: { kind: 'text', text: '16' }, speak: 'Mười sáu' },
-      { id: 'n17', label: '17', sub: 'Mười bảy', count: 17, countEmoji: '🍎', visual: { kind: 'text', text: '17' }, speak: 'Mười bảy' },
-      { id: 'n18', label: '18', sub: 'Mười tám', count: 18, countEmoji: '🍎', visual: { kind: 'text', text: '18' }, speak: 'Mười tám' },
-      { id: 'n19', label: '19', sub: 'Mười chín', count: 19, countEmoji: '🍎', visual: { kind: 'text', text: '19' }, speak: 'Mười chín' },
-      { id: 'n20', label: '20', sub: 'Hai mươi', count: 20, countEmoji: '🍎', visual: { kind: 'text', text: '20' }, speak: 'Hai mươi' }
+      { id: 'n1', label: '1', sub: 'Một', visual: { kind: 'text', text: '1' }, speak: 'Một' },
+      { id: 'n2', label: '2', sub: 'Hai', visual: { kind: 'text', text: '2' }, speak: 'Hai' },
+      { id: 'n3', label: '3', sub: 'Ba', visual: { kind: 'text', text: '3' }, speak: 'Ba' },
+      { id: 'n4', label: '4', sub: 'Bốn', visual: { kind: 'text', text: '4' }, speak: 'Bốn' },
+      { id: 'n5', label: '5', sub: 'Năm', visual: { kind: 'text', text: '5' }, speak: 'Năm' },
+      { id: 'n6', label: '6', sub: 'Sáu', visual: { kind: 'text', text: '6' }, speak: 'Sáu' },
+      { id: 'n7', label: '7', sub: 'Bảy', visual: { kind: 'text', text: '7' }, speak: 'Bảy' },
+      { id: 'n8', label: '8', sub: 'Tám', visual: { kind: 'text', text: '8' }, speak: 'Tám' },
+      { id: 'n9', label: '9', sub: 'Chín', visual: { kind: 'text', text: '9' }, speak: 'Chín' },
+      { id: 'n10', label: '10', sub: 'Mười', visual: { kind: 'text', text: '10' }, speak: 'Mười' },
+      { id: 'n11', label: '11', sub: 'Mười một', visual: { kind: 'text', text: '11' }, speak: 'Mười một' },
+      { id: 'n12', label: '12', sub: 'Mười hai', visual: { kind: 'text', text: '12' }, speak: 'Mười hai' },
+      { id: 'n13', label: '13', sub: 'Mười ba', visual: { kind: 'text', text: '13' }, speak: 'Mười ba' },
+      { id: 'n14', label: '14', sub: 'Mười bốn', visual: { kind: 'text', text: '14' }, speak: 'Mười bốn' },
+      { id: 'n15', label: '15', sub: 'Mười lăm', visual: { kind: 'text', text: '15' }, speak: 'Mười lăm' },
+      { id: 'n16', label: '16', sub: 'Mười sáu', visual: { kind: 'text', text: '16' }, speak: 'Mười sáu' },
+      { id: 'n17', label: '17', sub: 'Mười bảy', visual: { kind: 'text', text: '17' }, speak: 'Mười bảy' },
+      { id: 'n18', label: '18', sub: 'Mười tám', visual: { kind: 'text', text: '18' }, speak: 'Mười tám' },
+      { id: 'n19', label: '19', sub: 'Mười chín', visual: { kind: 'text', text: '19' }, speak: 'Mười chín' },
+      { id: 'n20', label: '20', sub: 'Hai mươi', visual: { kind: 'text', text: '20' }, speak: 'Hai mươi' }
     ]
   },
   {

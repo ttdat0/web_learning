@@ -383,27 +383,6 @@ button {
   white-space: nowrap;
 }
 
-.learn-card__count {
-  font-size: 1.25em;
-  letter-spacing: 1px;
-  line-height: 1.35;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1px 3px;
-  max-width: 100%;
-}
-
-.learn-card__more {
-  background: rgba(255, 255, 255, 0.94);
-  color: var(--ink);
-  font-weight: 800;
-  font-size: 0.85em;
-  border-radius: 999px;
-  padding: 2px 10px;
-  align-self: center;
-}
-
 /* ---------- mặt thẻ chủ đề ---------- */
 .topic-card {
   width: 100%;

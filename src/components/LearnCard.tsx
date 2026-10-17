@@ -49,28 +49,20 @@ export default function LearnCard({
 }) {
   const bg = item.cardBg ?? topic.gradient;
   const dark = !!item.darkText;
+  // Ẩn nhãn khi nó trùng với chữ/số đã hiển thị to (vd: thẻ "6" không cần thêm nhãn "6")
+  const showLabel = !(item.visual.kind === 'text' && item.visual.text === item.label);
   return (
     <div
       className={`learn-card${big ? ' learn-card--big' : ''}${dark ? ' learn-card--dark' : ''}`}
       style={{ background: bg }}
     >
       <LearnVisual item={item} big={big} />
-      <div className="learn-card__label">{item.label}</div>
-      {(item.sub || item.count) && (
+      {showLabel && <div className="learn-card__label">{item.label}</div>}
+      {item.sub && (
         <div className="learn-card__sub">
-          {item.sub && (
-            <span className="learn-card__pill">
-              {item.sub} {item.subEmoji ?? ''}
-            </span>
-          )}
-          {item.count && item.countEmoji && (
-            <span className="learn-card__count" aria-label={`${item.count} ${item.countEmoji}`}>
-              {Array.from({ length: Math.min(item.count, 10) }).map((_, i) => (
-                <span key={i}>{item.countEmoji}</span>
-              ))}
-              {item.count > 10 && <span className="learn-card__more">+{item.count - 10}</span>}
-            </span>
-          )}
+          <span className="learn-card__pill">
+            {item.sub} {item.subEmoji ?? ''}
+          </span>
         </div>
       )}
     </div>
