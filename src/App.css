@@ -30,17 +30,23 @@ button {
 .app {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: clip;
 }
 
 /* Tối ưu cho điện thoại / máy tính bảng:
-   điện thoại full màn hình, tablet cột 720px như app native */
+   điện thoại full màn hình, tablet cột 720px như app native.
+   Flex column + 100dvh: trang chủ đề luôn vừa khít màn hình,
+   kể cả khi vào fullscreen hay đổi cỡ chữ/font. */
 .app__content {
   position: relative;
   z-index: 1;
   margin: 0 auto;
   min-height: 100vh;
+  min-height: 100dvh;
   max-width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 @media (min-width: 600px) {
@@ -217,19 +223,55 @@ button {
   line-height: 1;
 }
 
-/* ---------- stack thẻ học (kéo để lật) ---------- */
-.stack-wrap {
-  width: 100%;
-  max-width: 560px;
-  margin: 6px auto 0;
-  padding: 0 8px 26px;
+/* ---------- trang chủ đề: flex co giãn, luôn vừa khít ---------- */
+.topic-view {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Chừa khoảng trống phía trên cho các thẻ phía sau "thò" lên (kiểu deck).
+/* ---------- stack thẻ học (kéo để lật) ---------- */
+.stack-wrap {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 0 8px 18px;
+}
+
+/* Thẻ co giãn theo không gian còn lại — không bao giờ tràn màn hình.
+   Chừa khoảng trống phía trên cho các thẻ phía sau "thò" lên (kiểu deck).
    Selector phải "nặng" hơn .stack của Stack.css (được import sau). */
 .stack-wrap .topic-stack {
-  height: clamp(430px, 58vh, 540px);
+  flex: 1;
+  min-height: 260px;
+  max-height: 560px;
+  height: auto;
   margin-top: 36px;
+}
+
+/* Màn hình thấp (điện thoại nhỏ): thu gọn các khoảng cách để luôn vừa khít. */
+@media (max-height: 700px) {
+  .topic-topbar {
+    padding-top: 12px;
+  }
+  .stack-wrap .topic-stack {
+    margin-top: 24px;
+  }
+  .stack-counter {
+    margin-top: 10px;
+  }
+  .stack-hint {
+    margin-top: 16px;
+  }
+  .footer {
+    padding: 14px 16px 18px;
+  }
 }
 
 .stack-counter {
