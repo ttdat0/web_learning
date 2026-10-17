@@ -1,6 +1,6 @@
 {
   "name": "web_learning",
-  "version": "1.6.3",
+  "version": "1.7.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "gsap": "^3.15.0",
+    "motion": "^14.3.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },

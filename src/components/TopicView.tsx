@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import DepthCarousel from './DepthCarousel/DepthCarousel';
+import type { CSSProperties } from 'react';
+import Stack from './Stack/Stack';
+import HoloCard from './HoloCard/HoloCard';
 import LearnCard from './LearnCard';
 import type { Topic } from '../data/topics';
 import { speak } from '../lib/speak';
 
-/** Cỡ thẻ theo màn hình: điện thoại thẻ vừa, tablet/máy tính thẻ bự. */
-function useDepthSize() {
+/** Chiều rộng khung hình hiện tại — dùng để tính cỡ chữ cho thẻ học. */
+function useViewportWidth() {
   const [vw, setVw] = useState(() =>
     typeof window === 'undefined' ? 424 : window.innerWidth
   );
@@ -14,13 +16,30 @@ function useDepthSize() {
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
-  return vw < 600
-    ? { cardWidth: 410, cardHeight: 520, spread: 20 }
-    : { cardWidth: 460, cardHeight: 540, spread: 55 };
+  return vw;
 }
 
 export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () => void }) {
-  const size = useDepthSize();
+  const vw = useViewportWidth();
+  const [topIndex, setTopIndex] = useState(0);
+  const count = topic.items.length;
+
+  // Thẻ học bọc hiệu ứng holo — vuốt thẻ trên cùng để lật sang thẻ tiếp theo.
+  const cards = topic.items.map(item => (
+    <HoloCard key={item.id}>
+      <LearnCard item={item} topic={topic} />
+    </HoloCard>
+  ));
+
+  // Thẻ lấp đầy khung Stack → cỡ chữ tính theo chiều rộng khung.
+  const cardSize = Math.min(vw, 720) - 16;
+
+  const handleTap = (index: number) => {
+    const item = topic.items[index];
+    if (!item) return;
+    setTopIndex(index);
+    speak(item.speak);
+  };
 
   return (
     <main className="topic-view">
@@ -37,32 +56,28 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
       </header>
 
       <section
-        className="depth-wrap"
-        style={{ height: size.cardHeight + 24 }}
+        className="stack-wrap"
+        style={{ '--stack-card-size': `${cardSize}px` } as CSSProperties}
         aria-label={`Thẻ học chủ đề ${topic.name}`}
       >
-        <DepthCarousel
-          items={topic.items.map(item => ({
-            content: <LearnCard key={item.id} item={item} topic={topic} />
-          }))}
-          onCardClick={i => {
-            const item = topic.items[i];
-            if (item) speak(item.speak);
-          }}
-          cardWidth={size.cardWidth}
-          cardHeight={size.cardHeight}
-          radius={30}
-          depth={240}
-          spread={size.spread}
-          tilt={20}
-          visibleCards={3}
-          blur={5}
-          loop
-          showControls={false}
-          showIndicators={false}
+        <Stack
+          key={topic.id}
+          className="topic-stack"
+          cards={cards}
+          layout="deck"
+          visible={3}
+          spread={0.6}
+          depth={0.6}
+          radius={36}
+          threshold={90}
+          onCardClick={handleTap}
+          onChange={setTopIndex}
         />
+        <p className="stack-counter">
+          Thẻ {topIndex + 1} / {count}
+        </p>
+        <p className="stack-hint">👆 Chạm vào thẻ để nghe · 👉 Vuốt để lật thẻ tiếp theo</p>
       </section>
-      <p className="depth-hint">👉 Vuốt để lật thẻ, nhấn vào thẻ để nghe phát âm 🔊</p>
     </main>
   );
 }

@@ -1,0 +1,58 @@
+/* Hiệu ứng holo bằng CSS thuần — không WebGL, không filter, không blend-mode. */
+
+.holo-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.holo-card__tilt {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 36px;
+  overflow: hidden;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+/* Khi đang chạm: phản hồi nhanh theo tay, không easing gây trễ. */
+.holo-card__tilt.is-active {
+  transition: transform 0.06s linear;
+}
+
+.holo-card__shine,
+.holo-card__glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: var(--holo-o, 0);
+  transition: opacity 0.35s ease;
+}
+
+/* Dải cầu vồng chạy theo vị trí ngón tay. */
+.holo-card__shine {
+  background-image: linear-gradient(
+    115deg,
+    transparent 25%,
+    rgba(255, 0, 153, 0.3) 40%,
+    rgba(0, 229, 255, 0.3) 52%,
+    rgba(255, 235, 59, 0.3) 64%,
+    rgba(124, 77, 255, 0.3) 76%,
+    transparent 90%
+  );
+  background-size: 250% 250%;
+  background-position: var(--mx, 50%) var(--my, 50%);
+}
+
+/* Điểm sáng trắng tại đầu ngón tay. */
+.holo-card__glare {
+  background: radial-gradient(
+    circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0) 55%
+  );
+}

@@ -37,7 +37,7 @@ export function LearnVisual({ item }: { item: LearnItem; big?: boolean }) {
   );
 }
 
-/** Mặt thẻ học: dùng chung cho thẻ trong quạt BounceCards và thẻ lớn trong modal. */
+/** Mặt thẻ học: hiển thị bên trong Stack (bọc thêm hiệu ứng HoloCard). */
 export default function LearnCard({
   item,
   topic,
