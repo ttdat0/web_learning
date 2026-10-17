@@ -15,7 +15,7 @@ function useDepthSize() {
     return () => window.removeEventListener('resize', onResize);
   }, []);
   return vw < 600
-    ? { cardWidth: 340, cardHeight: 400, spread: 40 }
+    ? { cardWidth: 410, cardHeight: 520, spread: 20 }
     : { cardWidth: 460, cardHeight: 540, spread: 55 };
 }
 

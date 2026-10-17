@@ -9,7 +9,7 @@
  *   đồng thời đưa nó ra giữa (giữ hành vi focus gốc).
  * - Chặn click ngay sau khi vuốt bằng mốc thời gian (bản gốc kiểm tra ref đã null
  *   nên không chặn được trên cảm ứng).
- * - Giảm lề co giãn 120 → 64 để thẻ hiển thị bự hơn trên điện thoại.
+ * - Giảm lề co giãn 120 → 28 để thẻ hiển thị bự hơn trên điện thoại.
  * - Mỗi thẻ đặt biến `--bounce-cards-size` = chiều rộng thẻ để LearnCard (đơn vị em)
  *   co giãn đúng tỉ lệ, không tràn chữ.
  */
@@ -267,7 +267,7 @@ const DepthCarousel = ({
     const ro = new ResizeObserver(entries => {
       const w = entries[0].contentRect.width;
       const cfg = cfgRef.current;
-      const needed = cfg.cardWidth + Math.abs(cfg.spread) * 2 + 64;
+      const needed = cfg.cardWidth + Math.abs(cfg.spread) * 2 + 28;
       scaleRef.current = clamp(w / needed, 0.4, 1);
       layout(posRef.current);
     });
