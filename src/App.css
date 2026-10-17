@@ -523,12 +523,19 @@ button {
   border-color: #0284c7;
 }
 
+.modal__swipe-hint {
+  margin: 10px 0 0;
+  color: var(--ink-soft);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
 .modal__dots {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 7px;
-  margin-top: 18px;
+  margin-top: 14px;
   max-width: 260px;
   margin-left: auto;
   margin-right: auto;
