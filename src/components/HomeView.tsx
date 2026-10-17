@@ -4,7 +4,7 @@ import { TOPICS, type Topic } from '../data/topics';
 import { useFanSize } from '../hooks/useFanSize';
 
 export default function HomeView({ onSelect }: { onSelect: (topic: Topic) => void }) {
-  const fan = useFanSize();
+  const fan = useFanSize(TOPICS.length);
 
   return (
     <main className="home">
@@ -22,7 +22,7 @@ export default function HomeView({ onSelect }: { onSelect: (topic: Topic) => voi
             alt: topic.name,
             content: <TopicCard topic={topic} />
           }))}
-          containerWidth={760}
+          containerWidth={560}
           containerHeight={fan.containerHeight}
           cardSize={fan.cardSize}
           spread={fan.spread}
@@ -36,7 +36,7 @@ export default function HomeView({ onSelect }: { onSelect: (topic: Topic) => voi
           borderWidth={6}
           radius={30}
           onCardClick={i => onSelect(TOPICS[i])}
-          style={{ width: '100%', maxWidth: 760, margin: '0 auto' }}
+          style={{ width: '100%', maxWidth: 560, margin: '0 auto' }}
         />
         <p className="fan-hint">👉 Di chuột hoặc chạm vào thẻ để xem, nhấn để mở</p>
       </section>

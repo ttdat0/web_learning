@@ -26,7 +26,11 @@ const App = () => {
       <BackgroundDecor />
       <div className="app__content">
         {activeTopic ? (
-          <TopicView topic={activeTopic} onBack={() => setActiveTopic(null)} />
+          <TopicView
+            key={activeTopic.id}
+            topic={activeTopic}
+            onBack={() => setActiveTopic(null)}
+          />
         ) : (
           <HomeView onSelect={setActiveTopic} />
         )}

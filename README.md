@@ -9,8 +9,8 @@ các thẻ nảy vào với hiệu ứng vật lý lò xo, xòe ra khi di chuộ
 
 | Chủ đề    | Nội dung                          |
 | --------- | --------------------------------- |
-| 🔤 Chữ cái | A, Ă, Â, B, C kèm từ ví dụ        |
-| 🔢 Số đếm  | Đếm 1–5 với minh họa trực quan    |
+| 🔤 Chữ cái | 29 chữ cái tiếng Việt kèm từ ví dụ |
+| 🔢 Số đếm  | Đếm 1–10 với minh họa trực quan   |
 | 🎨 Màu sắc | Đỏ, vàng, xanh lá, xanh dương, cam |
 | 🐾 Con vật | Mèo, chó, gà, vịt, cá             |
 | ⭐ Hình khối | Tròn, vuông, tam giác, sao, tim |
