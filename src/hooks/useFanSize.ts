@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 
 /**
  * Kích thước quạt thẻ tự co giãn theo số lượng thẻ và màn hình.
- * Tối ưu cho điện thoại / máy tính bảng: app hiển thị trong cột tối đa 560px.
+ * Tối ưu cho điện thoại / máy tính bảng: cột app full màn hình điện thoại,
+ * tối đa 720px trên máy tính bảng.
  */
 export function useFanSize(count: number) {
   const [vw, setVw] = useState(() =>
@@ -15,19 +16,19 @@ export function useFanSize(count: number) {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  const colW = Math.min(vw, 560) - 24;
+  const maxCol = vw < 600 ? vw : 720;
+  const colW = Math.min(vw, maxCol) - 24;
   const n = Math.max(1, count);
 
-  // Thẻ to khi ít thẻ, nhỏ dần khi nhiều thẻ để vừa cột màn hình
-  let cardSize = n <= 5 ? 160 : n <= 8 ? 124 : 100;
-  cardSize = Math.min(cardSize, colW * (n <= 5 ? 0.42 : 0.3));
-
-  const spread = Math.max(30, (colW - cardSize) / Math.max(1, n - 1));
+  // Trên cảm ứng không có hover để xòe thẻ, nên mỗi thẻ lộ ~70% cho dễ nhìn
+  const visibleFrac = 0.7;
+  const cardSize = Math.min(175, colW / (1 + (n - 1) * visibleFrac));
+  const spread = cardSize * visibleFrac;
 
   return {
     cardSize: Math.round(cardSize),
     spread: Math.round(spread),
-    containerHeight: Math.round(cardSize * 2.15),
-    pushDistance: Math.round(spread * 1.25)
+    containerHeight: Math.round(cardSize * 2.1),
+    pushDistance: Math.round(spread * 1.3)
   };
 }

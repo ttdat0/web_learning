@@ -33,17 +33,19 @@ button {
   overflow-x: clip;
 }
 
-/* Tối ưu cho điện thoại / máy tính bảng: app nằm trong cột gọn như app native */
+/* Tối ưu cho điện thoại / máy tính bảng:
+   điện thoại full màn hình, tablet cột 720px như app native */
 .app__content {
   position: relative;
   z-index: 1;
-  max-width: 560px;
   margin: 0 auto;
   min-height: 100vh;
+  max-width: 100%;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 600px) {
   .app__content {
+    max-width: 720px;
     box-shadow: 0 0 48px rgba(2, 132, 199, 0.16);
   }
 }
@@ -283,7 +285,9 @@ button {
   font-size: 1rem;
 }
 
-/* ---------- mặt thẻ học ---------- */
+/* ---------- mặt thẻ học ----------
+   Mọi kích thước chữ dùng đơn vị em, co giãn theo đúng kích thước thẻ
+   (biến --bounce-cards-size do BounceCards đặt) nên luôn đều và không tràn. */
 .learn-card {
   width: 100%;
   height: 100%;
@@ -291,10 +295,16 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 14px 10px;
+  gap: 0.4em;
+  padding: 0.8em 0.6em;
   color: #fff;
   text-align: center;
+  font-size: calc(var(--bounce-cards-size, 160px) * 0.095);
+  overflow: hidden;
+}
+
+.learn-card--big {
+  font-size: calc(var(--bounce-cards-size, 160px) * 0.14);
 }
 
 .learn-card--dark {
@@ -305,71 +315,45 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 96px;
-}
-
-.learn-visual--big {
-  min-height: 150px;
+  min-height: 4.6em;
 }
 
 .learn-visual__text {
-  font-size: 4.4rem;
+  font-size: 4em;
   font-weight: 800;
   line-height: 1;
-  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.16);
-}
-
-.learn-visual--big .learn-visual__text {
-  font-size: 6.6rem;
+  text-shadow: 0 0.07em 0 rgba(0, 0, 0, 0.16);
 }
 
 .learn-visual__emoji {
-  font-size: 4.2rem;
+  font-size: 3.9em;
   line-height: 1;
-  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.18));
-}
-
-.learn-visual--big .learn-visual__emoji {
-  font-size: 6.4rem;
+  filter: drop-shadow(0 0.09em 0.09em rgba(0, 0, 0, 0.18));
 }
 
 .learn-visual__swatch {
-  width: 92px;
-  height: 92px;
+  width: 5em;
+  height: 5em;
   border-radius: 50%;
-  border: 6px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 8px 16px -6px rgba(0, 0, 0, 0.35);
-}
-
-.learn-visual--big .learn-visual__swatch {
-  width: 138px;
-  height: 138px;
+  border: 0.35em solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0.5em 1em -0.4em rgba(0, 0, 0, 0.35);
 }
 
 .learn-visual__svg {
-  width: 92px;
-  height: 92px;
-  filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.22));
-}
-
-.learn-visual--big .learn-visual__svg {
-  width: 140px;
-  height: 140px;
+  width: 5em;
+  height: 5em;
+  filter: drop-shadow(0 0.35em 0.35em rgba(0, 0, 0, 0.22));
 }
 
 .learn-card__label {
-  font-size: 1.45rem;
+  font-size: 1.45em;
   font-weight: 800;
   line-height: 1.15;
-  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.14);
+  text-shadow: 0 0.14em 0 rgba(0, 0, 0, 0.14);
 }
 
 .learn-card--dark .learn-card__label {
   text-shadow: none;
-}
-
-.learn-card--big .learn-card__label {
-  font-size: 2rem;
 }
 
 .learn-card__sub {
@@ -385,14 +369,14 @@ button {
   background: rgba(255, 255, 255, 0.94);
   color: var(--ink);
   font-weight: 800;
-  font-size: 1.02rem;
+  font-size: 1em;
   border-radius: 999px;
-  padding: 4px 14px;
+  padding: 0.2em 0.85em;
   white-space: nowrap;
 }
 
 .learn-card__count {
-  font-size: 1.25rem;
+  font-size: 1.25em;
   letter-spacing: 1px;
   line-height: 1.35;
   display: flex;
@@ -400,10 +384,6 @@ button {
   justify-content: center;
   gap: 1px 3px;
   max-width: 100%;
-}
-
-.learn-card--big .learn-card__count {
-  font-size: 1.6rem;
 }
 
 .learn-card__more {
@@ -424,31 +404,33 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 0.35em;
   color: #fff;
   text-align: center;
-  padding: 12px;
+  padding: 0.8em;
+  font-size: calc(var(--bounce-cards-size, 160px) * 0.095);
+  overflow: hidden;
 }
 
 .topic-card__icon {
-  font-size: 3.8rem;
+  font-size: 3.9em;
   line-height: 1;
-  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.2));
+  filter: drop-shadow(0 0.1em 0.1em rgba(0, 0, 0, 0.2));
 }
 
 .topic-card__name {
-  font-size: 1.55rem;
+  font-size: 1.6em;
   font-weight: 800;
-  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.14);
+  text-shadow: 0 0.13em 0 rgba(0, 0, 0, 0.14);
 }
 
 .topic-card__count {
   background: rgba(255, 255, 255, 0.92);
   color: var(--ink);
   font-weight: 800;
-  font-size: 0.95rem;
+  font-size: 0.95em;
   border-radius: 999px;
-  padding: 3px 14px;
+  padding: 0.2em 0.9em;
 }
 
 /* ---------- modal ---------- */

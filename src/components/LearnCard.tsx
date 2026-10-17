@@ -23,10 +23,10 @@ function ShapeSvg({ shape, color }: { shape: ShapeKind; color: string }) {
   );
 }
 
-export function LearnVisual({ item, big }: { item: LearnItem; big?: boolean }) {
+export function LearnVisual({ item }: { item: LearnItem; big?: boolean }) {
   const v = item.visual;
   return (
-    <div className={`learn-visual${big ? ' learn-visual--big' : ''}`}>
+    <div className="learn-visual">
       {v.kind === 'text' && <span className="learn-visual__text">{v.text}</span>}
       {v.kind === 'emoji' && <span className="learn-visual__emoji">{v.emoji}</span>}
       {v.kind === 'color' && (

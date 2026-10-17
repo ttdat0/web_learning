@@ -6,7 +6,7 @@ import type { LearnItem, Topic } from '../data/topics';
 import { useFanSize } from '../hooks/useFanSize';
 
 /** Số thẻ tối đa trên một trang quạt (để thẻ luôn đủ to, dễ chạm). */
-const PAGE_SIZE = 8;
+const PAGE_SIZE = 5;
 
 function paginate<T>(items: T[], size: number): T[][] {
   const pages: T[][] = [];
