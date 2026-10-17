@@ -1,8 +1,23 @@
-# Rsbuild project
+# 🎈 Bé Học Vui — Website học tập cho trẻ nhỏ
+
+Website học tập vui nhộn dành cho trẻ nhỏ, xây dựng bằng **React 19 + Rsbuild +
+Tailwind CSS 4**. Giao diện thẻ dùng component
+[Bounce Cards](https://reactbits.dev/components/bounce-cards) của React Bits:
+các thẻ nảy vào với hiệu ứng vật lý lò xo, xòe ra khi di chuột/chạm vào.
+
+## Nội dung học
+
+| Chủ đề    | Nội dung                          |
+| --------- | --------------------------------- |
+| 🔤 Chữ cái | A, Ă, Â, B, C kèm từ ví dụ        |
+| 🔢 Số đếm  | Đếm 1–5 với minh họa trực quan    |
+| 🎨 Màu sắc | Đỏ, vàng, xanh lá, xanh dương, cam |
+| 🐾 Con vật | Mèo, chó, gà, vịt, cá             |
+| ⭐ Hình khối | Tròn, vuông, tam giác, sao, tim |
+
+Nhấn vào thẻ để mở chi tiết và **nghe phát âm tiếng Việt** (Web Speech API).
 
 ## Setup
-
-Install the dependencies:
 
 ```bash
 npm install
@@ -10,27 +25,13 @@ npm install
 
 ## Get started
 
-Start the dev server, and the app will be available at [http://localhost:3000](http://localhost:3000).
-
 ```bash
-npm run dev
+npm run dev      # chạy dev server tại http://localhost:3000
+npm run build    # build production
+npm run preview  # xem thử bản production
 ```
 
-Build the app for production:
+## Thêm nội dung mới
 
-```bash
-npm run build
-```
-
-Preview the production build locally:
-
-```bash
-npm run preview
-```
-
-## Learn more
-
-To learn more about Rsbuild, check out the following resources:
-
-- [Rsbuild documentation](https://rsbuild.rs) - explore Rsbuild features and APIs.
-- [Rsbuild GitHub repository](https://github.com/web-infra-dev/rsbuild) - your feedback and contributions are welcome!
+Sửa file `src/data/topics.ts` — thêm `Topic` hoặc `LearnItem` mới, website tự
+động hiển thị mà không cần sửa giao diện.
