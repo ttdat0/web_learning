@@ -45,18 +45,13 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
   return (
     <main className="topic-view">
       <header className="topic-topbar">
-        <button className="back-btn back-btn--fresh" onClick={onBack} aria-label="Về trang chủ">
-          <span className="back-btn__arrow" aria-hidden="true">
-            ←
-          </span>
-          Trang chủ
+        <button className="back-btn--icon" onClick={onBack} aria-label="Về trang chủ">
+          ←
         </button>
-        <div className="topic-topbar__right">
-          <h2 className="topic-topbar__name" style={{ backgroundImage: topic.gradient }}>
-            {topic.name}
-          </h2>
-          <FullscreenButton />
-        </div>
+        <h2 className="topic-topbar__name" style={{ backgroundImage: topic.gradient }}>
+          {topic.name}
+        </h2>
+        <FullscreenButton />
       </header>
 
       <section
@@ -82,8 +77,12 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
         <p className="stack-counter">
           Thẻ {topIndex + 1} / {count}
         </p>
-        <p className="stack-hint">👆 Chạm vào thẻ để nghe · 👉 Vuốt để lật thẻ tiếp theo</p>
       </section>
+
+      <footer className="footer">💛 Bé Học Vui — học mà chơi, chơi mà học</footer>
+      <p className="stack-hint stack-hint--below">
+        👆 Chạm vào thẻ để nghe · 👉 Vuốt để lật thẻ tiếp theo
+      </p>
     </main>
   );
 }

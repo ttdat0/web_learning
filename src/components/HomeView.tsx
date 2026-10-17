@@ -39,6 +39,8 @@ export default function HomeView({ onSelect }: { onSelect: (topic: Topic) => voi
         />
         <p className="fan-hint">👉 Vuốt để xem các chủ đề, nhấn vào thẻ để mở</p>
       </section>
+
+      <footer className="footer">💛 Bé Học Vui — học mà chơi, chơi mà học</footer>
     </main>
   );
 }

@@ -34,7 +34,6 @@ const App = () => {
         ) : (
           <HomeView onSelect={setActiveTopic} />
         )}
-        <footer className="footer">💛 Bé Học Vui — học mà chơi, chơi mà học</footer>
       </div>
     </div>
   );
