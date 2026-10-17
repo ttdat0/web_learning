@@ -7,5 +7,9 @@ export default defineConfig({
   plugins: [pluginReact(), pluginTailwindcss()],
   html: {
     template: './index.html'
-  }
+  },
+  // GitHub Pages project site: served under /web_learning/
+  output: {
+    assetPrefix: '/web_learning/',
+  },
 });
