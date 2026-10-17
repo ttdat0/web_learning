@@ -1,11 +1,8 @@
-import BounceCards from './BounceCards/BounceCards';
+import Carousel from './Carousel/Carousel';
 import TopicCard from './TopicCard';
 import { TOPICS, type Topic } from '../data/topics';
-import { useFanSize } from '../hooks/useFanSize';
 
 export default function HomeView({ onSelect }: { onSelect: (topic: Topic) => void }) {
-  const fan = useFanSize(TOPICS.length);
-
   return (
     <main className="home">
       <header className="hero">
@@ -16,29 +13,29 @@ export default function HomeView({ onSelect }: { onSelect: (topic: Topic) => voi
         <p className="hero__subtitle">Chạm vào một thẻ để bắt đầu khám phá nhé! ✨</p>
       </header>
 
-      <section className="fan-wrap" aria-label="Các chủ đề học tập">
-        <BounceCards
-          images={TOPICS.map(topic => ({
-            alt: topic.name,
-            content: <TopicCard topic={topic} />
-          }))}
-          containerWidth={560}
-          containerHeight={fan.containerHeight}
-          cardSize={fan.cardSize}
-          spread={fan.spread}
-          rotation={9}
-          arc={26}
-          animationDelay={0.35}
-          animationStagger={0.09}
-          bounciness={0.65}
-          pushDistance={fan.pushDistance}
-          hoverScale={1.1}
-          borderWidth={6}
+      <section className="carousel-wrap" aria-label="Các chủ đề học tập">
+        <Carousel
+          items={TOPICS.map(topic => (
+            <TopicCard key={topic.id} topic={topic} />
+          ))}
+          onCardClick={i => {
+            const topic = TOPICS[i];
+            if (topic) onSelect(topic);
+          }}
+          baseWidth={560}
+          aspectRatio={1.05}
+          peek={44}
+          gap={18}
           radius={30}
-          onCardClick={i => onSelect(TOPICS[i])}
+          frame={false}
+          effect="tilt"
+          indicator="dots"
+          arrows={false}
+          loop
+          theme="light"
           style={{ width: '100%', maxWidth: 560, margin: '0 auto' }}
         />
-        <p className="fan-hint">👉 Di chuột hoặc chạm vào thẻ để xem, nhấn để mở</p>
+        <p className="fan-hint">👉 Vuốt để xem các chủ đề, nhấn vào thẻ để mở</p>
       </section>
 
       <section className="topic-list" aria-label="Danh sách chủ đề">
