@@ -166,8 +166,12 @@ button {
   justify-content: space-between;
   gap: 12px;
   max-width: 920px;
-  margin: 0 auto;
-  padding: 20px 18px 6px;
+  /* Là flex-item của .topic-view: margin auto sẽ co topbar lại theo nội dung,
+     nên để margin 0 + full width cho nút ra sát góc. */
+  margin: 0;
+  width: 100%;
+  /* Nút back + fullscreen nằm sát ra góc màn hình. */
+  padding: 20px 8px 6px;
 }
 
 /* Tên danh mục căn giữa — hai nút tròn 44px hai bên đối xứng. */
