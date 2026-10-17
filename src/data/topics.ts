@@ -76,7 +76,7 @@ export const TOPICS: Topic[] = [
     id: 'so-dem',
     name: 'Số đếm',
     icon: '🔢',
-    desc: 'Tập đếm từ 1 đến 10',
+    desc: 'Tập đếm từ 1 đến 20',
     gradient: 'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)',
     items: [
       { id: 'n1', label: '1', sub: 'Một', count: 1, countEmoji: '🍎', visual: { kind: 'text', text: '1' }, speak: 'Một' },
@@ -88,7 +88,17 @@ export const TOPICS: Topic[] = [
       { id: 'n7', label: '7', sub: 'Bảy', count: 7, countEmoji: '🍎', visual: { kind: 'text', text: '7' }, speak: 'Bảy' },
       { id: 'n8', label: '8', sub: 'Tám', count: 8, countEmoji: '🍎', visual: { kind: 'text', text: '8' }, speak: 'Tám' },
       { id: 'n9', label: '9', sub: 'Chín', count: 9, countEmoji: '🍎', visual: { kind: 'text', text: '9' }, speak: 'Chín' },
-      { id: 'n10', label: '10', sub: 'Mười', count: 10, countEmoji: '🍎', visual: { kind: 'text', text: '10' }, speak: 'Mười' }
+      { id: 'n10', label: '10', sub: 'Mười', count: 10, countEmoji: '🍎', visual: { kind: 'text', text: '10' }, speak: 'Mười' },
+      { id: 'n11', label: '11', sub: 'Mười một', count: 11, countEmoji: '🍎', visual: { kind: 'text', text: '11' }, speak: 'Mười một' },
+      { id: 'n12', label: '12', sub: 'Mười hai', count: 12, countEmoji: '🍎', visual: { kind: 'text', text: '12' }, speak: 'Mười hai' },
+      { id: 'n13', label: '13', sub: 'Mười ba', count: 13, countEmoji: '🍎', visual: { kind: 'text', text: '13' }, speak: 'Mười ba' },
+      { id: 'n14', label: '14', sub: 'Mười bốn', count: 14, countEmoji: '🍎', visual: { kind: 'text', text: '14' }, speak: 'Mười bốn' },
+      { id: 'n15', label: '15', sub: 'Mười lăm', count: 15, countEmoji: '🍎', visual: { kind: 'text', text: '15' }, speak: 'Mười lăm' },
+      { id: 'n16', label: '16', sub: 'Mười sáu', count: 16, countEmoji: '🍎', visual: { kind: 'text', text: '16' }, speak: 'Mười sáu' },
+      { id: 'n17', label: '17', sub: 'Mười bảy', count: 17, countEmoji: '🍎', visual: { kind: 'text', text: '17' }, speak: 'Mười bảy' },
+      { id: 'n18', label: '18', sub: 'Mười tám', count: 18, countEmoji: '🍎', visual: { kind: 'text', text: '18' }, speak: 'Mười tám' },
+      { id: 'n19', label: '19', sub: 'Mười chín', count: 19, countEmoji: '🍎', visual: { kind: 'text', text: '19' }, speak: 'Mười chín' },
+      { id: 'n20', label: '20', sub: 'Hai mươi', count: 20, countEmoji: '🍎', visual: { kind: 'text', text: '20' }, speak: 'Hai mươi' }
     ]
   },
   {

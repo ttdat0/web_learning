@@ -65,9 +65,10 @@ export default function LearnCard({
           )}
           {item.count && item.countEmoji && (
             <span className="learn-card__count" aria-label={`${item.count} ${item.countEmoji}`}>
-              {Array.from({ length: item.count }).map((_, i) => (
+              {Array.from({ length: Math.min(item.count, 10) }).map((_, i) => (
                 <span key={i}>{item.countEmoji}</span>
               ))}
+              {item.count > 10 && <span className="learn-card__more">+{item.count - 10}</span>}
             </span>
           )}
         </div>
