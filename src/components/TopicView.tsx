@@ -70,9 +70,11 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
           cards={cards}
           layout="deck"
           visible={3}
-          spread={0.6}
+          spread={0.35}
           depth={0.6}
           radius={36}
+          frame={5}
+          frameColor="#ffffff"
           threshold={90}
           onCardClick={handleTap}
           onChange={setTopIndex}

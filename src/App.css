@@ -252,7 +252,7 @@ button {
   min-height: 260px;
   max-height: 560px;
   height: auto;
-  margin-top: 36px;
+  margin-top: 28px;
 }
 
 /* Màn hình thấp (điện thoại nhỏ): thu gọn các khoảng cách để luôn vừa khít. */
@@ -282,12 +282,12 @@ button {
   margin: 14px 0 0;
 }
 
-/* Dòng gợi ý thu nhỏ, đẩy sát xuống gần footer để thẻ có thêm không gian thở. */
+/* Dòng gợi ý thu nhỏ, nằm gọn gần footer để không dư khoảng trống. */
 .stack-hint {
   text-align: center;
   color: var(--ink-soft);
   font-weight: 600;
-  margin: 34px 0 0;
+  margin: 18px 0 0;
   font-size: 0.82rem;
   padding: 0 16px;
   opacity: 0.85;
@@ -312,7 +312,7 @@ button {
   text-align: center;
   font-size: calc(var(--stack-card-size, var(--bounce-cards-size, 160px)) * 0.095);
   overflow: hidden;
-  border-radius: 36px;
+  border-radius: 30px;
 }
 
 /* Quầng sáng mềm sau biểu tượng — thẻ trông có chiều sâu, đỡ trống. */
@@ -606,7 +606,7 @@ button {
 /* ---------- footer ---------- */
 .footer {
   text-align: center;
-  padding: 26px 16px 34px;
+  padding: 18px 16px 24px;
   color: #94a3b8;
   font-weight: 600;
 }
