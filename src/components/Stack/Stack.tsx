@@ -7,6 +7,9 @@
  * - `turn()`: hạ z-index xuống đáy ngay khi thẻ quay về (keepZ: false) thay vì
  *   chờ `land()` — tránh "bóng trắng" của thẻ đang mờ dần nổi trên cả bộ bài
  *   khi vuốt nhanh liên tục.
+ * - `sendToBack()`/`land()`: tắt/mở `pointer-events` của thẻ đang bay — tránh
+ *   chạm nhầm vào thẻ đang bay (đè lên trên, nhưng không còn là top) khiến
+ *   vuốt bị từ chối → "đứng im" khi vuốt nhanh liên tiếp cùng hướng.
  * - Bỏ dòng 'use client' (không dùng Next.js).
  */
 /* eslint-disable react-hooks/refs */
@@ -409,6 +412,9 @@ export default function Stack({
     const flight = { turned: false };
     flyingRef.current.set(top, flight);
     values.z.set(s.count + 1);
+    // Thẻ đang bay không được chặn chạm: nếu không, vuốt nhanh liên tiếp sẽ
+    // chạm nhầm vào thẻ đang bay (đè lên trên) và bị từ chối → "đứng im".
+    elementsRef.current.get(top)?.style.setProperty('pointer-events', 'none');
     animate(values.x, out[0], velocity ? { ...launch, velocity: velocity[0] } : launch);
     animate(values.y, out[1], velocity ? { ...launch, velocity: velocity[1] } : launch);
     settleFace(values, s);
@@ -425,6 +431,7 @@ export default function Stack({
     const land = () => {
       landed = true;
       if (flyingRef.current.get(top) === flight) flyingRef.current.delete(top);
+      elementsRef.current.get(top)?.style.removeProperty('pointer-events');
       const position = orderRef.current.indexOf(top);
       if (position >= 0) values.z.set(settingsRef.current!.count - position);
     };
