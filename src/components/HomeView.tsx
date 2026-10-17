@@ -23,7 +23,7 @@ export default function HomeView({ onSelect }: { onSelect: (topic: Topic) => voi
             if (topic) onSelect(topic);
           }}
           baseWidth={560}
-          aspectRatio={1.05}
+          aspectRatio={0.95}
           peek={44}
           gap={18}
           radius={30}
@@ -36,24 +36,6 @@ export default function HomeView({ onSelect }: { onSelect: (topic: Topic) => voi
           style={{ width: '100%', maxWidth: 560, margin: '0 auto' }}
         />
         <p className="fan-hint">👉 Vuốt để xem các chủ đề, nhấn vào thẻ để mở</p>
-      </section>
-
-      <section className="topic-list" aria-label="Danh sách chủ đề">
-        {TOPICS.map(topic => (
-          <button
-            key={topic.id}
-            className="topic-chip"
-            style={{ background: topic.gradient }}
-            onClick={() => onSelect(topic)}
-          >
-            <span className="topic-chip__icon">{topic.icon}</span>
-            <span className="topic-chip__text">
-              <strong>{topic.name}</strong>
-              <small>{topic.desc}</small>
-            </span>
-            <span className="topic-chip__go">▶</span>
-          </button>
-        ))}
       </section>
     </main>
   );
