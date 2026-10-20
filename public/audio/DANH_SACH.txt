@@ -154,14 +154,34 @@ meo.mp3  →  Con mèo
 cho.mp3  →  Con chó
 ga.mp3  →  Con gà
 vit.mp3  →  Con vịt
-ca.mp3  →  Con cá
+ca.mp3  →  Con cá vàng
 tho.mp3  →  Con thỏ
 heo.mp3  →  Con heo
 bo.mp3  →  Con bò
 ngua.mp3  →  Con ngựa
+trau.mp3  →  Con trâu
+de.mp3  →  Con dê
+cuu.mp3  →  Con cừu
+chuot.mp3  →  Con chuột
+rua.mp3  →  Con rùa
+ech.mp3  →  Con ếch
+ong.mp3  →  Con ong
+buom.mp3  →  Con bướm
+soc.mp3  →  Con sóc
+vet.mp3  →  Con vẹt
+cu-meo.mp3  →  Con cú mèo
+su-tu.mp3  →  Con sư tử
+ho.mp3  →  Con hổ
+gau.mp3  →  Con gấu
+gau-truc.mp3  →  Con gấu trúc
+huou-cao-co.mp3  →  Con hươu cao cổ
+ngua-van.mp3  →  Con ngựa vằn
+huou.mp3  →  Con hươu
+cao.mp3  →  Con cáo
 voi.mp3  →  Con voi
 khi.mp3  →  Con khỉ
-chim.mp3  →  Con chim
+ca-heo.mp3  →  Con cá heo
+chim-canh-cut.mp3  →  Con chim cánh cụt
 
 ## Hình khối
 tron.mp3  →  Hình tròn
