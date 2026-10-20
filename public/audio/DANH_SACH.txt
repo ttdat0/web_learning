@@ -137,11 +137,17 @@ n99.mp3  →  Chín mươi chín
 n100.mp3  →  Một trăm
 
 ## Màu sắc
-do.mp3  →  Màu đỏ
-vang.mp3  →  Màu vàng
-xanh-la.mp3  →  Màu xanh lá
-xanh-duong.mp3  →  Màu xanh dương
-cam.mp3  →  Màu cam
+do.mp3  →  Màu đỏ. Quả táo
+cam.mp3  →  Màu cam. Quả cam
+vang.mp3  →  Màu vàng. Quả chuối
+xanh-la.mp3  →  Màu xanh lá. Chiếc lá
+xanh-duong.mp3  →  Màu xanh dương. Con cá voi
+tim.mp3  →  Màu tím. Quả nho
+hong.mp3  →  Màu hồng. Bông hoa
+nau.mp3  →  Màu nâu. Con gấu
+xam.mp3  →  Màu xám. Con voi
+den.mp3  →  Màu đen. Con mèo đen
+trang.mp3  →  Màu trắng. Con thỏ
 
 ## Con vật
 meo.mp3  →  Con mèo
