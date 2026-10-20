@@ -63,11 +63,17 @@ Con trâu (trau)
   Giấy phép: CC BY-SA 4.0
   Nguồn: https://commons.wikimedia.org/wiki/File:Bubalus_bubalis_(water_buffalo)_calf,_looking_at_the_viewer,_the_feet_in_a_pond,_in_Laos.jpg
 
-Con dê (de)
+Con dê nhà (de-nha)
   Ảnh: Capra aegagrus hircus in isla Margarita.jpg
   Tác giả: Wilfredor
   Giấy phép: CC0
   Nguồn: https://commons.wikimedia.org/wiki/File:Capra_aegagrus_hircus_in_isla_Margarita.jpg
+
+Con dê núi (de-nui)
+  Ảnh: Alpensteinbock Capra ibex-0801.jpg
+  Tác giả: Isiwal
+  Giấy phép: CC BY-SA 4.0
+  Nguồn: https://commons.wikimedia.org/wiki/File:Alpensteinbock_Capra_ibex-0801.jpg
 
 Con cừu (cuu)
   Ảnh: Swaledale Sheep, Lake District, England - June 2009.jpg
@@ -81,11 +87,23 @@ Con chuột (chuot)
   Giấy phép: CC BY 2.0
   Nguồn: https://commons.wikimedia.org/wiki/File:Harvest_mouse_and_blossom.jpg
 
-Con rùa (rua)
+Con rùa biển (rua-bien)
   Ảnh: Hawaii turtle 2.JPG
   Tác giả: Brocken Inaglory
   Giấy phép: CC BY-SA 3.0
   Nguồn: https://commons.wikimedia.org/wiki/File:Hawaii_turtle_2.JPG
+
+Con rùa cạn (rua-can)
+  Ảnh: African spurred tortoise (Centrochelys sulcata), Gembira Loka Zoo, 2015-03-15.jpg
+  Tác giả: Crisco 1492
+  Giấy phép: CC BY-SA 4.0
+  Nguồn: https://commons.wikimedia.org/wiki/File:African_spurred_tortoise_(Centrochelys_sulcata),_Gembira_Loka_Zoo,_2015-03-15.jpg
+
+Con rùa tai đỏ (rua-tai-do)
+  Ảnh: Red-eared Slider Turtle.jpg
+  Tác giả: Creepanta
+  Giấy phép: CC BY-SA 4.0
+  Nguồn: https://commons.wikimedia.org/wiki/File:Red-eared_Slider_Turtle.jpg
 
 Con ếch (ech)
   Ảnh: The Green and Golden Bell Frog.jpg

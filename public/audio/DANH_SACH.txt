@@ -160,10 +160,13 @@ heo.mp3  →  Con heo
 bo.mp3  →  Con bò
 ngua.mp3  →  Con ngựa
 trau.mp3  →  Con trâu
-de.mp3  →  Con dê
+de-nha.mp3  →  Con dê nhà
+de-nui.mp3  →  Con dê núi
 cuu.mp3  →  Con cừu
 chuot.mp3  →  Con chuột
-rua.mp3  →  Con rùa
+rua-bien.mp3  →  Con rùa biển
+rua-can.mp3  →  Con rùa cạn
+rua-tai-do.mp3  →  Con rùa tai đỏ
 ech.mp3  →  Con ếch
 ong.mp3  →  Con ong
 buom.mp3  →  Con bướm
