@@ -4,7 +4,8 @@ export type Visual =
   | { kind: 'text'; text: string }
   | { kind: 'emoji'; emoji: string }
   | { kind: 'color'; hex: string }
-  | { kind: 'shape'; shape: ShapeKind; color: string };
+  | { kind: 'shape'; shape: ShapeKind; color: string }
+  | { kind: 'image'; src: string };
 
 export interface LearnItem {
   id: string;
@@ -204,14 +205,21 @@ export const TOPICS: Topic[] = [
     id: 'con-vat',
     name: 'Con vật',
     icon: '🐾',
-    desc: 'Các con vật đáng yêu',
+    desc: 'Nhận biết 12 con vật',
     gradient: 'linear-gradient(135deg, #22c55e 0%, #84cc16 100%)',
     items: [
-      { id: 'meo', label: 'Con mèo', visual: { kind: 'emoji', emoji: '🐱' }, speak: 'Con mèo' },
-      { id: 'cho', label: 'Con chó', visual: { kind: 'emoji', emoji: '🐶' }, speak: 'Con chó' },
-      { id: 'ga', label: 'Con gà', visual: { kind: 'emoji', emoji: '🐔' }, speak: 'Con gà' },
-      { id: 'vit', label: 'Con vịt', visual: { kind: 'emoji', emoji: '🦆' }, speak: 'Con vịt' },
-      { id: 'ca', label: 'Con cá', visual: { kind: 'emoji', emoji: '🐟' }, speak: 'Con cá' }
+      { id: 'meo', label: 'Con mèo', visual: { kind: 'image', src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Six_weeks_old_cat_%28aka%29.jpg/960px-Six_weeks_old_cat_%28aka%29.jpg' }, speak: 'Con mèo' },
+      { id: 'cho', label: 'Con chó', visual: { kind: 'image', src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Fawn_and_white_Welsh_Corgi_puppy_standing_on_rear_legs_and_sticking_out_the_tongue.jpg/960px-Fawn_and_white_Welsh_Corgi_puppy_standing_on_rear_legs_and_sticking_out_the_tongue.jpg' }, speak: 'Con chó' },
+      { id: 'ga', label: 'Con gà', visual: { kind: 'image', src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/Hen_chicken.jpg/960px-Hen_chicken.jpg' }, speak: 'Con gà' },
+      { id: 'vit', label: 'Con vịt', visual: { kind: 'image', src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Male_mallard_duck_2.jpg/960px-Male_mallard_duck_2.jpg' }, speak: 'Con vịt' },
+      { id: 'ca', label: 'Con cá', visual: { kind: 'image', src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Goldfish_Fantail.jpg/960px-Goldfish_Fantail.jpg' }, speak: 'Con cá' },
+      { id: 'tho', label: 'Con thỏ', visual: { kind: 'image', src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Bunny_in_a_small_zoo.jpg/960px-Bunny_in_a_small_zoo.jpg' }, speak: 'Con thỏ' },
+      { id: 'heo', label: 'Con heo', visual: { kind: 'image', src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Contre-jour_photograph_of_a_standing_piglet_at_sunset_with_colorful_sky_in_Don_Det_Laos.jpg/960px-Contre-jour_photograph_of_a_standing_piglet_at_sunset_with_colorful_sky_in_Don_Det_Laos.jpg' }, speak: 'Con heo' },
+      { id: 'bo', label: 'Con bò', visual: { kind: 'image', src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/38/HF_in_der_Rh%C3%B6n_auf_der_Weide.jpg/960px-HF_in_der_Rh%C3%B6n_auf_der_Weide.jpg' }, speak: 'Con bò' },
+      { id: 'ngua', label: 'Con ngựa', visual: { kind: 'image', src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Horse_December_2014-1.jpg/960px-Horse_December_2014-1.jpg' }, speak: 'Con ngựa' },
+      { id: 'voi', label: 'Con voi', visual: { kind: 'image', src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Elephant_running.jpg/960px-Elephant_running.jpg' }, speak: 'Con voi' },
+      { id: 'khi', label: 'Con khỉ', visual: { kind: 'image', src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Macaque_India_3.jpg/960px-Macaque_India_3.jpg' }, speak: 'Con khỉ' },
+      { id: 'chim', label: 'Con chim', visual: { kind: 'image', src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Melopsittacus_undulatus_-_Vogelpark_Steinen_02.jpg/960px-Melopsittacus_undulatus_-_Vogelpark_Steinen_02.jpg' }, speak: 'Con chim' }
     ]
   },
   {

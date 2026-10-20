@@ -35,6 +35,9 @@ export function LearnVisual({ item }: { item: LearnItem; big?: boolean }) {
         </span>
       )}
       {v.kind === 'emoji' && <span className="learn-visual__emoji">{v.emoji}</span>}
+      {v.kind === 'image' && (
+        <img className="learn-visual__img" src={v.src} alt={item.label} draggable={false} />
+      )}
       {v.kind === 'color' && (
         <span className="learn-visual__swatch" style={{ background: v.hex }} aria-hidden="true" />
       )}

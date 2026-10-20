@@ -406,6 +406,17 @@ button {
   filter: drop-shadow(0 0.09em 0.09em rgba(0, 0, 0, 0.18));
 }
 
+/* Ảnh thật (danh mục con vật): khung bo góc, viền trắng như vòng màu. */
+.learn-visual__img {
+  width: 6.1em;
+  height: 5.5em;
+  object-fit: cover;
+  border-radius: 0.85em;
+  border: 0.3em solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0.5em 1em -0.4em rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.25);
+}
+
 .learn-visual__swatch {
   width: 6.4em;
   height: 6.4em;

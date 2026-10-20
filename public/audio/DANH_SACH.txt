@@ -155,6 +155,13 @@ cho.mp3  →  Con chó
 ga.mp3  →  Con gà
 vit.mp3  →  Con vịt
 ca.mp3  →  Con cá
+tho.mp3  →  Con thỏ
+heo.mp3  →  Con heo
+bo.mp3  →  Con bò
+ngua.mp3  →  Con ngựa
+voi.mp3  →  Con voi
+khi.mp3  →  Con khỉ
+chim.mp3  →  Con chim
 
 ## Hình khối
 tron.mp3  →  Hình tròn
