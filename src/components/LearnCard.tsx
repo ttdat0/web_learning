@@ -27,7 +27,13 @@ export function LearnVisual({ item }: { item: LearnItem; big?: boolean }) {
   const v = item.visual;
   return (
     <div className="learn-visual">
-      {v.kind === 'text' && <span className="learn-visual__text">{v.text}</span>}
+      {v.kind === 'text' && (
+        <span
+          className={`learn-visual__text${v.text.length > 2 ? ' learn-visual__text--long' : ''}`}
+        >
+          {v.text}
+        </span>
+      )}
       {v.kind === 'emoji' && <span className="learn-visual__emoji">{v.emoji}</span>}
       {v.kind === 'color' && (
         <span className="learn-visual__swatch" style={{ background: v.hex }} aria-hidden="true" />

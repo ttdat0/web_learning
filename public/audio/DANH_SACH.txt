@@ -4,15 +4,15 @@ Nội dung thu = đúng cột 'Câu đọc' (kể cả dấu chấm)
 ====================================================
 
 ## Chữ cái
-a.mp3  →  A. Áo
+a.mp3  →  A. Cái ao
 ă.mp3  →  Ă. Ăn cơm
 â.mp3  →  Â. Âm nhạc
 b.mp3  →  Bờ. Quả bóng
 c.mp3  →  Cờ. Con cá
 d.mp3  →  Dờ. Con diều
 đ.mp3  →  Đờ. Cái đèn
-e.mp3  →  E. Con ếch
-ê.mp3  →  Ê. Bể cá
+e.mp3  →  E. Em bé
+ê.mp3  →  Ê. Ê!
 g.mp3  →  Gờ. Con gà
 h.mp3  →  Hờ. Bông hoa
 i.mp3  →  I. Im lặng
@@ -55,6 +55,86 @@ n17.mp3  →  Mười bảy
 n18.mp3  →  Mười tám
 n19.mp3  →  Mười chín
 n20.mp3  →  Hai mươi
+n21.mp3  →  Hai mươi mốt
+n22.mp3  →  Hai mươi hai
+n23.mp3  →  Hai mươi ba
+n24.mp3  →  Hai mươi tư
+n25.mp3  →  Hai mươi lăm
+n26.mp3  →  Hai mươi sáu
+n27.mp3  →  Hai mươi bảy
+n28.mp3  →  Hai mươi tám
+n29.mp3  →  Hai mươi chín
+n30.mp3  →  Ba mươi
+n31.mp3  →  Ba mươi mốt
+n32.mp3  →  Ba mươi hai
+n33.mp3  →  Ba mươi ba
+n34.mp3  →  Ba mươi tư
+n35.mp3  →  Ba mươi lăm
+n36.mp3  →  Ba mươi sáu
+n37.mp3  →  Ba mươi bảy
+n38.mp3  →  Ba mươi tám
+n39.mp3  →  Ba mươi chín
+n40.mp3  →  Bốn mươi
+n41.mp3  →  Bốn mươi mốt
+n42.mp3  →  Bốn mươi hai
+n43.mp3  →  Bốn mươi ba
+n44.mp3  →  Bốn mươi tư
+n45.mp3  →  Bốn mươi lăm
+n46.mp3  →  Bốn mươi sáu
+n47.mp3  →  Bốn mươi bảy
+n48.mp3  →  Bốn mươi tám
+n49.mp3  →  Bốn mươi chín
+n50.mp3  →  Năm mươi
+n51.mp3  →  Năm mươi mốt
+n52.mp3  →  Năm mươi hai
+n53.mp3  →  Năm mươi ba
+n54.mp3  →  Năm mươi tư
+n55.mp3  →  Năm mươi lăm
+n56.mp3  →  Năm mươi sáu
+n57.mp3  →  Năm mươi bảy
+n58.mp3  →  Năm mươi tám
+n59.mp3  →  Năm mươi chín
+n60.mp3  →  Sáu mươi
+n61.mp3  →  Sáu mươi mốt
+n62.mp3  →  Sáu mươi hai
+n63.mp3  →  Sáu mươi ba
+n64.mp3  →  Sáu mươi tư
+n65.mp3  →  Sáu mươi lăm
+n66.mp3  →  Sáu mươi sáu
+n67.mp3  →  Sáu mươi bảy
+n68.mp3  →  Sáu mươi tám
+n69.mp3  →  Sáu mươi chín
+n70.mp3  →  Bảy mươi
+n71.mp3  →  Bảy mươi mốt
+n72.mp3  →  Bảy mươi hai
+n73.mp3  →  Bảy mươi ba
+n74.mp3  →  Bảy mươi tư
+n75.mp3  →  Bảy mươi lăm
+n76.mp3  →  Bảy mươi sáu
+n77.mp3  →  Bảy mươi bảy
+n78.mp3  →  Bảy mươi tám
+n79.mp3  →  Bảy mươi chín
+n80.mp3  →  Tám mươi
+n81.mp3  →  Tám mươi mốt
+n82.mp3  →  Tám mươi hai
+n83.mp3  →  Tám mươi ba
+n84.mp3  →  Tám mươi tư
+n85.mp3  →  Tám mươi lăm
+n86.mp3  →  Tám mươi sáu
+n87.mp3  →  Tám mươi bảy
+n88.mp3  →  Tám mươi tám
+n89.mp3  →  Tám mươi chín
+n90.mp3  →  Chín mươi
+n91.mp3  →  Chín mươi mốt
+n92.mp3  →  Chín mươi hai
+n93.mp3  →  Chín mươi ba
+n94.mp3  →  Chín mươi tư
+n95.mp3  →  Chín mươi lăm
+n96.mp3  →  Chín mươi sáu
+n97.mp3  →  Chín mươi bảy
+n98.mp3  →  Chín mươi tám
+n99.mp3  →  Chín mươi chín
+n100.mp3  →  Một trăm
 
 ## Màu sắc
 do.mp3  →  Màu đỏ
