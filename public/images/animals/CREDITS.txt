@@ -4,12 +4,24 @@ Mỗi ảnh ghi rõ tác giả + giấy phép theo đúng yêu cầu của giấ
 ====================================================================
 
 Con mèo (meo)
+  Ảnh: Siberian black tabby blotched cat 04.jpg
+  Tác giả: Tadeáš Bednarz
+  Giấy phép: CC BY-SA 4.0
+  Nguồn: https://commons.wikimedia.org/wiki/File:Siberian_black_tabby_blotched_cat_04.jpg
+
+Con mèo con (meo-con)
   Ảnh: Six weeks old cat (aka).jpg
   Tác giả: André Karwath aka Aka
   Giấy phép: CC BY-SA 2.5
   Nguồn: https://commons.wikimedia.org/wiki/File:Six_weeks_old_cat_(aka).jpg
 
 Con chó (cho)
+  Ảnh: Agnes the Golden Retriever.jpg
+  Tác giả: Golden Retriever Raseåd
+  Giấy phép: CC BY-SA 4.0
+  Nguồn: https://commons.wikimedia.org/wiki/File:Agnes_the_Golden_Retriever.jpg
+
+Con chó con (cho-con)
   Ảnh: Fawn and white Welsh Corgi puppy standing on rear legs and sticking out the tongue.jpg
   Tác giả: Huoadg5888Minor edits made by Subsidiary account
   Giấy phép: CC0
@@ -21,11 +33,23 @@ Con gà (ga)
   Giấy phép: CC BY-SA 3.0
   Nguồn: https://commons.wikimedia.org/wiki/File:Hen_chicken.jpg
 
+Con gà con (ga-con)
+  Ảnh: Yellow Chick.jpg
+  Tác giả: Petr Kratochvil
+  Giấy phép: CC0
+  Nguồn: https://commons.wikimedia.org/wiki/File:Yellow_Chick.jpg
+
 Con vịt (vit)
   Ảnh: Male mallard duck 2.jpg
   Tác giả: Acarpentier
   Giấy phép: CC BY 3.0
   Nguồn: https://commons.wikimedia.org/wiki/File:Male_mallard_duck_2.jpg
+
+Con vịt con (vit-con)
+  Ảnh: 20250718 mallard duckling wethersfield cove PD200055.jpg
+  Tác giả: Paul Danese
+  Giấy phép: CC BY-SA 4.0
+  Nguồn: https://commons.wikimedia.org/wiki/File:20250718_mallard_duckling_wethersfield_cove_PD200055.jpg
 
 Con cá vàng (ca)
   Ảnh: Goldfish Fantail.jpg
@@ -40,6 +64,12 @@ Con thỏ (tho)
   Nguồn: https://commons.wikimedia.org/wiki/File:Bunny_in_a_small_zoo.jpg
 
 Con heo (heo)
+  Ảnh: Saitama Domestic Pigs In Pasture 1.jpg
+  Tác giả: 京浜にけ at Japanese Wikipedia
+  Giấy phép: CC BY-SA 3.0
+  Nguồn: https://commons.wikimedia.org/wiki/File:Saitama_Domestic_Pigs_In_Pasture_1.jpg
+
+Con heo con (heo-con)
   Ảnh: Contre-jour photograph of a standing piglet at sunset with colorful sky in Don Det Laos.jpg
   Tác giả: Basile Morin
   Giấy phép: CC BY-SA 4.0
@@ -63,6 +93,12 @@ Con ngựa (ngua)
   Giấy phép: CC BY-SA 4.0
   Nguồn: https://commons.wikimedia.org/wiki/File:Horse_December_2014-1.jpg
 
+Con ngựa con (ngua-con)
+  Ảnh: Foal in Mongolia.jpg
+  Tác giả: Bernard Gagnon
+  Giấy phép: CC0
+  Nguồn: https://commons.wikimedia.org/wiki/File:Foal_in_Mongolia.jpg
+
 Con trâu (trau)
   Ảnh: Water Buffal,Sylhet 01.jpg
   Tác giả: Fabian Roudra Baroi
@@ -80,6 +116,12 @@ Con dê nhà (de-nha)
   Tác giả: Wilfredor
   Giấy phép: CC0
   Nguồn: https://commons.wikimedia.org/wiki/File:Capra_aegagrus_hircus_in_isla_Margarita.jpg
+
+Con dê con (de-con)
+  Ảnh: Baby Goat in Margarita Island, Venezuela.jpg
+  Tác giả: Béria Lima de Rodríguez
+  Giấy phép: CC BY-SA 3.0
+  Nguồn: https://commons.wikimedia.org/wiki/File:Baby_Goat_in_Margarita_Island,_Venezuela.jpg
 
 Con dê núi (de-nui)
   Ảnh: Alpensteinbock Capra ibex-0801.jpg
