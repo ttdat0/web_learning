@@ -266,7 +266,7 @@ export const TOPICS: Topic[] = [
       { id: 'tam-giac', label: 'Hình tam giác', visual: { kind: 'shape', shape: 'triangle', color: '#4ade80' }, speak: 'Hình tam giác' },
       { id: 'sao', label: 'Hình ngôi sao', visual: { kind: 'shape', shape: 'star', color: '#fb923c' }, speak: 'Hình ngôi sao' },
       { id: 'trai-tim', label: 'Hình trái tim', visual: { kind: 'shape', shape: 'heart', color: '#ef4444' }, speak: 'Hình trái tim' },
-      { id: 'chu-nhat', label: 'Hình chữ nhật', visual: { kind: 'shape', shape: 'rectangle', color: '#3b82f6' }, speak: 'Hình chữ nhật' },
+      { id: 'chu-nhat', label: 'Hình chữ nhật', visual: { kind: 'shape', shape: 'rectangle', color: '#f97316' }, speak: 'Hình chữ nhật' },
       { id: 'bau-duc', label: 'Hình bầu dục', visual: { kind: 'shape', shape: 'oval', color: '#a855f7' }, speak: 'Hình bầu dục' },
       { id: 'thoi', label: 'Hình thoi', visual: { kind: 'shape', shape: 'rhombus', color: '#14b8a6' }, speak: 'Hình thoi' },
       { id: 'luc-giac', label: 'Hình lục giác', visual: { kind: 'shape', shape: 'hexagon', color: '#84cc16' }, speak: 'Hình lục giác' },

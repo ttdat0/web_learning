@@ -430,6 +430,14 @@ button {
   filter: drop-shadow(0 0.35em 0.35em rgba(0, 0, 0, 0.22));
 }
 
+/* Viền trắng quanh hình khối: tách hình khỏi nền thẻ (tránh màu hình
+   trùng màu nền gradient như chữ nhật xanh trên nền xanh). */
+.learn-visual__svg :is(circle, rect, ellipse, polygon, path) {
+  stroke: rgba(255, 255, 255, 0.92);
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+
 /* Thẻ màu: vòng màu nhỏ lại + giãn cách gọn hơn, để nhãn dài 2 dòng
    (vd "Màu xanh dương") và nhãn phụ vẫn nằm trọn trong thẻ. */
 .learn-card--color {
