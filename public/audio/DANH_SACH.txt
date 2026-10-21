@@ -153,7 +153,7 @@ trang.mp3  →  Màu trắng. Con thỏ
 meo.mp3  →  Con mèo
 meo-con.mp3  →  Con mèo con
 cho.mp3  →  Con chó
-cho-con.mp3  →  Con chó con
+cun.mp3  →  Con cún
 ga.mp3  →  Con gà
 ga-con.mp3  →  Con gà con
 vit.mp3  →  Con vịt
@@ -163,11 +163,11 @@ tho.mp3  →  Con thỏ
 heo.mp3  →  Con heo
 heo-con.mp3  →  Con heo con
 bo.mp3  →  Con bò
-bo-con.mp3  →  Con bò con
+be.mp3  →  Con bê
 ngua.mp3  →  Con ngựa
 ngua-con.mp3  →  Con ngựa con
 trau.mp3  →  Con trâu
-trau-con.mp3  →  Con trâu con
+nghe.mp3  →  Con nghé
 de-nha.mp3  →  Con dê nhà
 de-con.mp3  →  Con dê con
 de-nui.mp3  →  Con dê núi
