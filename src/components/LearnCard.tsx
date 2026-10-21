@@ -19,7 +19,7 @@ function ShapeSvg({ shape, color }: { shape: ShapeKind; color: string }) {
           fill={color}
         />
       )}
-      {shape === 'rectangle' && <rect x="6" y="27" width="88" height="46" rx="12" fill={color} />}
+      {shape === 'rectangle' && <rect x="6" y="27" width="88" height="46" rx="7" fill={color} />}
       {shape === 'oval' && <ellipse cx="50" cy="50" rx="43" ry="28" fill={color} />}
       {shape === 'rhombus' && (
         <polygon points="50,7 89,50 50,93 11,50" fill={color} strokeLinejoin="round" />

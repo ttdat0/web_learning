@@ -16,7 +16,7 @@ import './HoloCard.css';
  * không dùng WebGL/filter/blend-mode nên an toàn cho điện thoại.
  */
 
-const TILT_MAX = 12; // độ nghiêng tối đa
+const TILT_MAX = 6; // độ nghiêng tối đa (dịu để rê chuột trên PC thẻ không bị lệch hẳn)
 
 interface HoloCardProps {
   children: ReactNode;
@@ -34,7 +34,7 @@ export default function HoloCard({ children }: HoloCardProps) {
     tilt.style.setProperty('--ry', `${((px - 0.5) * 2 * TILT_MAX).toFixed(2)}deg`);
     tilt.style.setProperty('--mx', `${(px * 100).toFixed(1)}%`);
     tilt.style.setProperty('--my', `${(py * 100).toFixed(1)}%`);
-    tilt.style.setProperty('--holo-o', active ? '0.9' : '0');
+    tilt.style.setProperty('--holo-o', active ? '0.5' : '0');
     tilt.classList.toggle('is-active', active);
   };
 

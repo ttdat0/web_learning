@@ -14,7 +14,7 @@
   border-radius: 30px;
   overflow: hidden;
   transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-  transition: transform 0.3s ease;
+  transition: transform 0.45s ease;
   will-change: transform;
 }
 
@@ -38,10 +38,10 @@
   background-image: linear-gradient(
     115deg,
     transparent 25%,
-    rgba(255, 0, 153, 0.3) 40%,
-    rgba(0, 229, 255, 0.3) 52%,
-    rgba(255, 235, 59, 0.3) 64%,
-    rgba(124, 77, 255, 0.3) 76%,
+    rgba(255, 0, 153, 0.2) 40%,
+    rgba(0, 229, 255, 0.2) 52%,
+    rgba(255, 235, 59, 0.2) 64%,
+    rgba(124, 77, 255, 0.2) 76%,
     transparent 90%
   );
   background-size: 250% 250%;
@@ -52,7 +52,7 @@
 .holo-card__glare {
   background: radial-gradient(
     circle at var(--mx, 50%) var(--my, 50%),
-    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.32),
     rgba(255, 255, 255, 0) 55%
   );
 }
