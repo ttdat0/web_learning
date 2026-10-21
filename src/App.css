@@ -16,7 +16,7 @@ body {
   margin: 0;
   font-family: var(--font-kid);
   color: var(--ink);
-  background: linear-gradient(180deg, #7dd3fc 0%, #bae6fd 34%, #fef9c3 100%);
+  background: linear-gradient(180deg, #7dd3fc 0%, #bae6fd 40%, #e0f2fe 100%);
   background-attachment: fixed;
   min-height: 100vh;
 }
