@@ -52,7 +52,6 @@ button {
 @media (min-width: 600px) {
   .app__content {
     max-width: 720px;
-    box-shadow: 0 0 48px rgba(2, 132, 199, 0.16);
   }
 }
 
