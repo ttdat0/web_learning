@@ -158,8 +158,10 @@ ca.mp3  →  Con cá vàng
 tho.mp3  →  Con thỏ
 heo.mp3  →  Con heo
 bo.mp3  →  Con bò
+bo-con.mp3  →  Con bò con
 ngua.mp3  →  Con ngựa
 trau.mp3  →  Con trâu
+trau-con.mp3  →  Con trâu con
 de-nha.mp3  →  Con dê nhà
 de-nui.mp3  →  Con dê núi
 cuu.mp3  →  Con cừu
