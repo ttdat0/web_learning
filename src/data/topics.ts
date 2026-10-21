@@ -1,4 +1,4 @@
-export type ShapeKind = 'circle' | 'square' | 'triangle' | 'star' | 'heart';
+export type ShapeKind = 'circle' | 'square' | 'triangle' | 'star' | 'heart' | 'rectangle' | 'oval' | 'rhombus' | 'hexagon' | 'semicircle' | 'trapezoid' | 'crescent' | 'droplet' | 'cloud' | 'arrow';
 
 export type Visual =
   | { kind: 'text'; text: string }
@@ -258,14 +258,24 @@ export const TOPICS: Topic[] = [
     id: 'hinh-khoi',
     name: 'Hình khối',
     icon: '⭐',
-    desc: 'Hình tròn, vuông, tam giác...',
+    desc: 'Nhận biết 15 hình khối',
     gradient: 'linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%)',
     items: [
       { id: 'tron', label: 'Hình tròn', visual: { kind: 'shape', shape: 'circle', color: '#f472b6' }, speak: 'Hình tròn' },
       { id: 'vuong', label: 'Hình vuông', visual: { kind: 'shape', shape: 'square', color: '#facc15' }, speak: 'Hình vuông' },
       { id: 'tam-giac', label: 'Hình tam giác', visual: { kind: 'shape', shape: 'triangle', color: '#4ade80' }, speak: 'Hình tam giác' },
       { id: 'sao', label: 'Hình ngôi sao', visual: { kind: 'shape', shape: 'star', color: '#fb923c' }, speak: 'Hình ngôi sao' },
-      { id: 'trai-tim', label: 'Hình trái tim', visual: { kind: 'shape', shape: 'heart', color: '#ef4444' }, speak: 'Hình trái tim' }
+      { id: 'trai-tim', label: 'Hình trái tim', visual: { kind: 'shape', shape: 'heart', color: '#ef4444' }, speak: 'Hình trái tim' },
+      { id: 'chu-nhat', label: 'Hình chữ nhật', visual: { kind: 'shape', shape: 'rectangle', color: '#3b82f6' }, speak: 'Hình chữ nhật' },
+      { id: 'bau-duc', label: 'Hình bầu dục', visual: { kind: 'shape', shape: 'oval', color: '#a855f7' }, speak: 'Hình bầu dục' },
+      { id: 'thoi', label: 'Hình thoi', visual: { kind: 'shape', shape: 'rhombus', color: '#14b8a6' }, speak: 'Hình thoi' },
+      { id: 'luc-giac', label: 'Hình lục giác', visual: { kind: 'shape', shape: 'hexagon', color: '#84cc16' }, speak: 'Hình lục giác' },
+      { id: 'ban-nguyet', label: 'Hình bán nguyệt', visual: { kind: 'shape', shape: 'semicircle', color: '#06b6d4' }, speak: 'Hình bán nguyệt' },
+      { id: 'hinh-thang', label: 'Hình thang', visual: { kind: 'shape', shape: 'trapezoid', color: '#fb7185' }, speak: 'Hình thang' },
+      { id: 'trang-khuyet', label: 'Hình trăng khuyết', visual: { kind: 'shape', shape: 'crescent', color: '#fbbf24' }, speak: 'Hình trăng khuyết' },
+      { id: 'giot-nuoc', label: 'Hình giọt nước', visual: { kind: 'shape', shape: 'droplet', color: '#0284c7' }, speak: 'Hình giọt nước' },
+      { id: 'dam-may', label: 'Hình đám mây', visual: { kind: 'shape', shape: 'cloud', color: '#93c5fd' }, speak: 'Hình đám mây' },
+      { id: 'mui-ten', label: 'Hình mũi tên', visual: { kind: 'shape', shape: 'arrow', color: '#d946ef' }, speak: 'Hình mũi tên' }
     ]
   }
 ];

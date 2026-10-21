@@ -19,6 +19,40 @@ function ShapeSvg({ shape, color }: { shape: ShapeKind; color: string }) {
           fill={color}
         />
       )}
+      {shape === 'rectangle' && <rect x="6" y="27" width="88" height="46" rx="12" fill={color} />}
+      {shape === 'oval' && <ellipse cx="50" cy="50" rx="43" ry="28" fill={color} />}
+      {shape === 'rhombus' && (
+        <polygon points="50,7 89,50 50,93 11,50" fill={color} strokeLinejoin="round" />
+      )}
+      {shape === 'hexagon' && (
+        <polygon points="50,6 88,28 88,72 50,94 12,72 12,28" fill={color} strokeLinejoin="round" />
+      )}
+      {shape === 'semicircle' && <path d="M8 60 A42 42 0 0 1 92 60 Z" fill={color} />}
+      {shape === 'trapezoid' && (
+        <polygon points="31,22 69,22 89,78 11,78" fill={color} strokeLinejoin="round" />
+      )}
+      {shape === 'crescent' && <path d="M52 6 A44 44 0 0 0 52 94 A48 48 0 0 1 52 6 Z" fill={color} />}
+      {shape === 'droplet' && (
+        <path
+          d="M50 5 C50 5 19 45 19 63 A31 31 0 0 0 81 63 C81 45 50 5 50 5 Z"
+          fill={color}
+        />
+      )}
+      {shape === 'cloud' && (
+        <g fill={color}>
+          <circle cx="34" cy="63" r="15" />
+          <circle cx="53" cy="49" r="20" />
+          <circle cx="71" cy="62" r="14" />
+          <rect x="34" y="56" width="37" height="22" rx="6" />
+        </g>
+      )}
+      {shape === 'arrow' && (
+        <polygon
+          points="8,37 56,37 56,22 92,50 56,78 56,63 8,63"
+          fill={color}
+          strokeLinejoin="round"
+        />
+      )}
     </svg>
   );
 }

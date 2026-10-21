@@ -201,3 +201,13 @@ vuong.mp3  →  Hình vuông
 tam-giac.mp3  →  Hình tam giác
 sao.mp3  →  Hình ngôi sao
 trai-tim.mp3  →  Hình trái tim
+chu-nhat.mp3  →  Hình chữ nhật
+bau-duc.mp3  →  Hình bầu dục
+thoi.mp3  →  Hình thoi
+luc-giac.mp3  →  Hình lục giác
+ban-nguyet.mp3  →  Hình bán nguyệt
+hinh-thang.mp3  →  Hình thang
+trang-khuyet.mp3  →  Hình trăng khuyết
+giot-nuoc.mp3  →  Hình giọt nước
+dam-may.mp3  →  Hình đám mây
+mui-ten.mp3  →  Hình mũi tên
