@@ -77,6 +77,14 @@
   display: block;
 }
 
+/* Quầng sáng mềm sau icon cho panel bớt trống trải. */
+.ag-panel__media-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.27), rgba(255, 255, 255, 0) 62%);
+}
+
 .ag-panel__overlay {
   position: absolute;
   inset: 0;
@@ -86,14 +94,15 @@
     color-mix(in srgb, var(--ag-overlay) calc(var(--ag-dim, 0.22) * 100%), transparent);
 }
 
-/* Icon chủ đề: hàng thu gọn hiện nhỏ, panel mở thì phóng to ở giữa. */
+/* Icon chủ đề: hàng thu gọn hiện nhỏ, panel mở thì phóng to ở giữa.
+   Cỡ icon co giãn theo khung hình để panel cao/rộng không bị trống. */
 .ag-panel__icon {
   position: absolute;
   z-index: 2;
   left: 50%;
-  top: 42%;
+  top: 50%;
   transform: translate(-50%, -50%) scale(1);
-  font-size: 2.1rem;
+  font-size: clamp(2.1rem, 9vmin, 3.4rem);
   line-height: 1;
   pointer-events: none;
   filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.3));
@@ -105,7 +114,8 @@
 }
 
 .ag-panel--active .ag-panel__icon {
-  transform: translate(-50%, -50%) scale(1.85);
+  top: 42%;
+  transform: translate(-50%, -50%) scale(1.9);
 }
 
 /* Tên tĩnh: chỉ hiện ở chế độ dọc khi hàng đang thu gọn. */
