@@ -207,7 +207,7 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
             dim={0.04}
             glow={0.55}
             borderGlow={0.9}
-            aspectRatio="1 / 1"
+            aspectRatio={vw >= 900 ? '4 / 3' : '1 / 1'}
             cardRadius={20}
             theme="light"
             currentIndex={topIndex}

@@ -721,6 +721,30 @@ button {
   max-width: 1180px;
   margin: 0 auto;
   padding: 8px 12px 14px;
+  /* Thanh cuộn mảnh, bo tròn, tông xanh — thay thanh mặc định thô của HĐH. */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(2, 132, 199, 0.35) transparent;
+  scrollbar-gutter: stable;
+  /* Hàng cuối mờ dần vào nền thay vì bị cắt cụt giữa thẻ. */
+  -webkit-mask-image: linear-gradient(180deg, #000000 calc(100% - 30px), transparent);
+  mask-image: linear-gradient(180deg, #000000 calc(100% - 30px), transparent);
+}
+
+.grid-wrap::-webkit-scrollbar {
+  width: 8px;
+}
+
+.grid-wrap::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.grid-wrap::-webkit-scrollbar-thumb {
+  background: rgba(2, 132, 199, 0.35);
+  border-radius: 999px;
+}
+
+.grid-wrap::-webkit-scrollbar-thumb:hover {
+  background: rgba(2, 132, 199, 0.55);
 }
 
 
