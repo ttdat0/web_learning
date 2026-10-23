@@ -1,5 +1,4 @@
-import Carousel from './Carousel/Carousel';
-import TopicCard from './TopicCard';
+import AccordionGallery from './AccordionGallery/AccordionGallery';
 import FullscreenButton from './FullscreenButton';
 import { TOPICS, type Topic } from '../data/topics';
 
@@ -15,29 +14,23 @@ export default function HomeView({ onSelect }: { onSelect: (topic: Topic) => voi
         <p className="hero__subtitle">Chạm vào một thẻ để bắt đầu khám phá nhé! ✨</p>
       </header>
 
-      <section className="carousel-wrap" aria-label="Các chủ đề học tập">
-        <Carousel
-          items={TOPICS.map(topic => (
-            <TopicCard key={topic.id} topic={topic} />
-          ))}
-          onCardClick={i => {
+      <section className="gallery-wrap" aria-label="Các chủ đề học tập">
+        <AccordionGallery
+          items={TOPICS.map(topic => ({
+            label: topic.name,
+            gradient: topic.gradient,
+            icon: topic.icon,
+            meta: `${topic.desc} · ${topic.items.length} thẻ`
+          }))}
+          defaultIndex={0}
+          expandRatio={0.52}
+          trigger="hover"
+          onOpen={i => {
             const topic = TOPICS[i];
             if (topic) onSelect(topic);
           }}
-          baseWidth={560}
-          aspectRatio={0.95}
-          peek={44}
-          gap={18}
-          radius={30}
-          frame={false}
-          effect="tilt"
-          indicator="dots"
-          arrows={false}
-          loop
-          theme="light"
-          style={{ width: '100%', maxWidth: 560, margin: '0 auto' }}
         />
-        <p className="fan-hint">👉 Vuốt để xem các chủ đề, nhấn vào thẻ để mở</p>
+        <p className="fan-hint">👉 Chạm vào một chủ đề để mở rộng, chạm lần nữa để học</p>
       </section>
 
       <footer className="footer">💛 Bé Học Vui — học mà chơi, chơi mà học</footer>
