@@ -222,6 +222,10 @@ button {
 .topic-view {
   flex: 1;
   min-height: 0;
+  /* Ghim đúng chiều cao màn hình để chế độ lưới cuộn bên trong khung
+     thay vì làm cả trang dài ra (app dùng min-height nên phải ghim ở đây). */
+  height: 100dvh;
+  max-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
@@ -698,4 +702,89 @@ button {
   .hero__balloon {
     animation: none;
   }
+}
+
+/* ===== Chế độ lưới "Xem tất cả" trong trang chủ đề ===== */
+.grid-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 8px 12px 14px;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(102px, 1fr));
+  gap: 10px;
+}
+
+.grid-cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  aspect-ratio: 0.92;
+  padding: 8px 6px;
+  border: none;
+  border-radius: 20px;
+  color: #fff;
+  font-family: inherit;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 6px 14px -6px rgba(15, 23, 42, 0.35);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.grid-cell:active {
+  transform: scale(0.95);
+}
+
+/* Cỡ chữ gốc cho LearnVisual thu nhỏ: mọi kích thước em bám theo đây. */
+.grid-cell__visual {
+  font-size: 10.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.grid-cell__label {
+  font-weight: 800;
+  font-size: 0.92rem;
+  line-height: 1.15;
+  text-align: center;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+/* Thẻ đang học được khoanh viền trắng bên trong ô. */
+.grid-cell--current {
+  box-shadow:
+    0 0 0 3px #ffffff inset,
+    0 6px 14px -6px rgba(15, 23, 42, 0.35);
+}
+
+.mode-toggle {
+  align-self: center;
+  margin: 4px auto 12px;
+  padding: 9px 18px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0c4a6e;
+  font-family: inherit;
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 8px 18px -8px rgba(15, 23, 42, 0.4);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mode-toggle:active {
+  transform: scale(0.96);
 }

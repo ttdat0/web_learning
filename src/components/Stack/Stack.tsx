@@ -67,6 +67,9 @@ export interface StackProps {
   onChange?: (index: number) => void;
   /** Gọi khi chạm (không kéo) vào thẻ trên cùng. */
   onCardClick?: (index: number) => void;
+  /** Thẻ nằm trên cùng khi bộ bài khởi tạo (mặc định 0) — dùng để nhảy
+      thẳng tới một thẻ (vd từ lưới "Xem tất cả") bằng cách remount. */
+  initialIndex?: number;
   className?: string;
   style?: CSSProperties;
 }
@@ -219,6 +222,7 @@ export default function Stack({
   pauseOnHover = false,
   onChange,
   onCardClick,
+  initialIndex = 0,
   className = '',
   style
 }: StackProps) {
@@ -230,7 +234,11 @@ export default function Stack({
   const shape: Layout = layout in ORIGINS ? layout : 'fan';
   const reduceMotion = useReducedMotion();
   const rootRef = useRef<HTMLDivElement>(null);
-  const [order, setOrder] = useState(() => Array.from({ length: count }, (_, index) => index));
+  const [order, setOrder] = useState(() => {
+    const base = Array.from({ length: count }, (_, index) => index);
+    const start = clamp(Math.round(initialIndex) || 0, 0, Math.max(count - 1, 0));
+    return [...base.slice(start), ...base.slice(0, start)];
+  });
   const [dragging, setDragging] = useState(false);
   const [hovered, setHovered] = useState(false);
   const orderRef = useRef(order);

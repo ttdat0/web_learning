@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import type { CSSProperties } from 'react';
 import Stack from './Stack/Stack';
 import HoloCard from './HoloCard/HoloCard';
-import LearnCard from './LearnCard';
+import LearnCard, { LearnVisual } from './LearnCard';
 import FullscreenButton from './FullscreenButton';
 import type { Topic } from '../data/topics';
 import { speak } from '../lib/speak';
@@ -23,6 +23,10 @@ function useViewportWidth() {
 export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () => void }) {
   const vw = useViewportWidth();
   const [topIndex, setTopIndex] = useState(0);
+  // Hai chế độ xem: 'deck' vuốt từng thẻ (Stack) và 'grid' xem toàn bộ.
+  const [mode, setMode] = useState<'deck' | 'grid'>('deck');
+  // Thẻ trên cùng khi (re)mount bộ bài — lưới nhảy tới thẻ nào thì đặt ở đây.
+  const [deckStart, setDeckStart] = useState(0);
   const count = topic.items.length;
 
   // Thẻ học bọc hiệu ứng holo — vuốt thẻ trên cùng để lật sang thẻ tiếp theo.
@@ -44,6 +48,22 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
     speak(item.speak, item.id);
   };
 
+  // Từ lưới: nhảy thẳng tới thẻ được chọn ở dạng từng thẻ và đọc luôn thẻ đó.
+  const jumpTo = (index: number) => {
+    const item = topic.items[index];
+    if (!item) return;
+    setDeckStart(index);
+    setTopIndex(index);
+    setMode('deck');
+    speak(item.speak, item.id);
+  };
+
+  // Từ lưới quay lại dạng từng thẻ mà không chọn thẻ: giữ nguyên thẻ đang học.
+  const backToDeck = () => {
+    setDeckStart(topIndex);
+    setMode('deck');
+  };
+
   return (
     <main className="topic-view">
       <header className="topic-topbar">
@@ -59,35 +79,80 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
         <FullscreenButton />
       </header>
 
-      <section
-        className="stack-wrap"
-        style={{ '--stack-card-size': `${cardSize}px` } as CSSProperties}
-        aria-label={`Thẻ học chủ đề ${topic.name}`}
-      >
-        <Stack
-          key={topic.id}
-          className="topic-stack"
-          cards={cards}
-          layout="deck"
-          visible={3}
-          spread={0.35}
-          depth={0.6}
-          radius={36}
-          frame={5}
-          frameColor="#ffffff"
-          threshold={90}
-          onCardClick={handleTap}
-          onChange={setTopIndex}
-        />
-      </section>
+      {mode === 'deck' ? (
+        <section
+          className="stack-wrap"
+          style={{ '--stack-card-size': `${cardSize}px` } as CSSProperties}
+          aria-label={`Thẻ học chủ đề ${topic.name}`}
+        >
+          <Stack
+            key={`${topic.id}:${deckStart}`}
+            className="topic-stack"
+            cards={cards}
+            layout="deck"
+            visible={3}
+            spread={0.35}
+            depth={0.6}
+            radius={36}
+            frame={5}
+            frameColor="#ffffff"
+            threshold={90}
+            initialIndex={deckStart}
+            onCardClick={handleTap}
+            onChange={setTopIndex}
+          />
+        </section>
+      ) : (
+        <section className="grid-wrap" aria-label={`Tất cả thẻ chủ đề ${topic.name}`}>
+          <div className="topic-grid">
+            {topic.items.map((item, i) => {
+              const textVisual = item.visual.kind === 'text' ? item.visual.text : null;
+              // Nhãn trùng hệt hình chữ (vd số đếm) thì khỏi lặp lại dưới ô.
+              const showLabel = textVisual === null || textVisual !== item.label;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  className={`grid-cell${i === topIndex ? ' grid-cell--current' : ''}`}
+                  style={{ background: topic.gradient }}
+                  onClick={() => jumpTo(i)}
+                  aria-label={`Học thẻ ${item.label}`}
+                >
+                  <span className="grid-cell__visual">
+                    <LearnVisual item={item} />
+                  </span>
+                  {showLabel && <span className="grid-cell__label">{item.label}</span>}
+                </button>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       <footer className="footer">💛 Bé Học Vui — học mà chơi, chơi mà học</footer>
-      <p className="stack-counter">
-        Thẻ {topIndex + 1} / {count}
-      </p>
-      <p className="stack-hint stack-hint--below">
-        👆 Chạm vào thẻ để nghe · 👉 Vuốt để lật thẻ tiếp theo
-      </p>
+      {mode === 'deck' ? (
+        <>
+          <p className="stack-counter">
+            Thẻ {topIndex + 1} / {count}
+          </p>
+          <p className="stack-hint stack-hint--below">
+            👆 Chạm vào thẻ để nghe · 👉 Vuốt để lật thẻ tiếp theo
+          </p>
+          <button type="button" className="mode-toggle" onClick={() => setMode('grid')}>
+            ▦ Xem tất cả {count} thẻ
+          </button>
+        </>
+      ) : (
+        <>
+          <p className="stack-counter">Tất cả {count} thẻ</p>
+          <p className="stack-hint stack-hint--below">
+            👆 Chạm vào một thẻ để học thẻ đó
+          </p>
+          <button type="button" className="mode-toggle" onClick={backToDeck}>
+            ❏ Xem từng thẻ
+          </button>
+        </>
+      )}
     </main>
   );
 }
