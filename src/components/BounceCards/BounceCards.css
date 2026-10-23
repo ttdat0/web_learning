@@ -55,3 +55,70 @@
   flex: 1;
   min-width: 0;
 }
+
+/* Mặt thẻ chủ đề cho trang chủ: gradient + icon + tên, neo ở góc trên-trái
+   như chỉ số của lá bài — phần luôn lộ ra dù quạt xòe dọc hay ngang.
+   Icon mờ lớn ở góc dưới-phải lấp khoảng trống trên thẻ được lộ trọn. */
+.bc-face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.bc-face__main {
+  position: absolute;
+  top: 8%;
+  left: 9%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.1em;
+  font-size: calc(var(--bounce-cards-size) * 0.115);
+  max-width: 86%;
+}
+
+.bc-face__icon {
+  font-size: 2.9em;
+  line-height: 1.1;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.bc-face__label {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.95em;
+  line-height: 1.15;
+  text-align: left;
+  white-space: nowrap;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* Quạt dọc: dải lộ của mỗi thẻ thấp nên icon + tên xếp thành một hàng
+   ngang cho vừa dải, thay vì xếp dọc như quạt ngang. */
+.bounce-cards--y .bc-face__main {
+  top: 5%;
+  left: 8%;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.45em;
+  max-width: 92%;
+}
+
+.bounce-cards--y .bc-face__icon {
+  font-size: 2.05em;
+}
+
+.bounce-cards--y .bc-face__label {
+  font-size: 0.88em;
+}
+
+.bc-face__ghost {
+  position: absolute;
+  right: 4%;
+  bottom: 2%;
+  font-size: calc(var(--bounce-cards-size) * 0.52);
+  line-height: 1;
+  opacity: 0.28;
+  pointer-events: none;
+}

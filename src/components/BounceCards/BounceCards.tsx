@@ -22,6 +22,8 @@ export type BounceCardsProps = {
   containerHeight?: number;
   cardSize?: number;
   spread?: number;
+  /** Trục xòe quạt: 'x' ngang (màn rộng), 'y' dọc (điện thoại đứng). */
+  axis?: 'x' | 'y';
   rotation?: number;
   arc?: number;
   animationDelay?: number;
@@ -80,6 +82,7 @@ export default function BounceCards({
   containerHeight = 400,
   cardSize = 200,
   spread = 85,
+  axis = 'x',
   rotation = 10,
   arc = 0,
   animationDelay = 0.5,
@@ -106,14 +109,18 @@ export default function BounceCards({
     const custom = transformStyles ? parseTransform(transformStyles[i]) : null;
     if (custom) return custom;
     const offset = i - middle;
+    const rotate = rotation * PATTERN[i % PATTERN.length];
+    // Quạt dọc: các thẻ xếp theo chiều Y, độ cong arc dồn sang X.
+    if (axis === 'y') return { x: arc * (offset / reach) ** 2, y: offset * spread, rotate };
     return {
       x: offset * spread,
       y: arc * (offset / reach) ** 2,
-      rotate: rotation * PATTERN[i % PATTERN.length]
+      rotate
     };
   });
   const settings = {
     slots,
+    axis,
     cardSize: Math.max(10, cardSize),
     delay: Math.max(0, animationDelay),
     stagger: Math.max(0, animationStagger),
@@ -201,6 +208,8 @@ export default function BounceCards({
             targetY = slot.y - s.cardSize * 0.04;
             targetRotate = 0;
             targetScale = s.hoverScale;
+          } else if (s.axis === 'y') {
+            targetY = slot.y + Math.sign(i - hovered) * s.pushDistance;
           } else {
             targetX = slot.x + Math.sign(i - hovered) * s.pushDistance;
           }
@@ -248,15 +257,28 @@ export default function BounceCards({
     };
     wakeRef.current = wake;
 
+    // Chọn thẻ theo đúng thứ bé nhìn thấy: thẻ trên cùng đang chứa điểm
+    // chạm (theo vị trí động hiện tại của thẻ). Không thẻ nào chứa thì
+    // mới lấy thẻ gần nhất theo trục xòe như bản gốc.
     const pick = (event: MouseEvent): number => {
       const s = settingsRef.current;
       const rect = root.getBoundingClientRect();
       const px = event.clientX - rect.left - rect.width / 2;
       const py = event.clientY - rect.top - rect.height / 2;
+      const half = s.cardSize / 2;
+      const contains = (i: number, pad: number) => {
+        const p = bodies[i] ?? s.slots[i];
+        const main = s.axis === 'y' ? Math.abs(py - p.y) : Math.abs(px - p.x);
+        const cross = s.axis === 'y' ? Math.abs(px - p.x) : Math.abs(py - p.y);
+        return main <= half + pad && cross <= half + pad;
+      };
+      for (let i = s.slots.length - 1; i >= 0; i--) {
+        if (contains(i, 6)) return i;
+      }
       let best = -1;
       let distance = Infinity;
       s.slots.forEach((slot, i) => {
-        const gap = Math.abs(px - slot.x);
+        const gap = s.axis === 'y' ? Math.abs(py - slot.y) : Math.abs(px - slot.x);
         if (gap < distance) {
           distance = gap;
           best = i;
@@ -264,12 +286,8 @@ export default function BounceCards({
       });
       if (best < 0) return -1;
       const slot = s.slots[best];
-      const half = s.cardSize / 2;
-      if (Math.abs(py - slot.y) > half + 12 || distance > half + 12) return -1;
-      if (state.hovered >= 0 && state.hovered !== best) {
-        const current = s.slots[state.hovered];
-        if (current && Math.abs(px - current.x) - distance < 6) return state.hovered;
-      }
+      const cross = s.axis === 'y' ? Math.abs(px - slot.x) : Math.abs(py - slot.y);
+      if (cross > half + 12 || distance > half + 12) return -1;
       return best;
     };
 
@@ -341,7 +359,7 @@ export default function BounceCards({
   return (
     <div
       ref={rootRef}
-      className={`bounce-cards${className ? ` ${className}` : ''}`}
+      className={`bounce-cards${axis === 'y' ? ' bounce-cards--y' : ''}${className ? ` ${className}` : ''}`}
       style={
         {
           width: containerWidth,

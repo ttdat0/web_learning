@@ -835,3 +835,13 @@ button {
 .back-menu__item:active {
   background: #f0f9ff;
 }
+
+/* Vùng chứa quạt thẻ BounceCards ở trang chủ. */
+.fan-holder {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
