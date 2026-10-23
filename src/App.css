@@ -787,28 +787,10 @@ button {
   justify-self: end;
 }
 
-/* Nút chuyển chế độ xem, nằm cạnh nút Back trên topbar. */
-.view-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  min-height: 42px;
-  padding: 0 14px;
-  border: none;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.92);
-  color: #0c4a6e;
-  font-family: inherit;
-  font-weight: 800;
-  font-size: 0.9rem;
-  cursor: pointer;
-  box-shadow: 0 6px 16px -6px rgba(2, 132, 199, 0.45);
-  -webkit-tap-highlight-color: transparent;
-  white-space: nowrap;
-}
-
-.view-toggle:active {
-  transform: scale(0.96);
+/* Nút chuyển chế độ xem dạng icon tròn (dùng chung .back-btn--icon):
+   hover phóng nhẹ thay vì trượt ngang như nút Back. */
+.back-btn--icon.view-toggle:hover {
+  transform: scale(1.08);
 }
 
 /* Menu nhấn giữ nút Quay lại. */

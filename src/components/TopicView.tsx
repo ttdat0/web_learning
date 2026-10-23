@@ -142,14 +142,19 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
             </svg>
           </button>
           {mode === 'deck' ? (
-            <button type="button" className="view-toggle" onClick={openGrid}>
-              <span aria-hidden="true">▦</span>
-              <span>Xem tất cả</span>
+            <button type="button" className="back-btn--icon view-toggle" onClick={openGrid} aria-label="Xem tất cả thẻ" title="Xem tất cả thẻ">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="3.5" y="3.5" width="7" height="7" rx="1.8" />
+                <rect x="13.5" y="3.5" width="7" height="7" rx="1.8" />
+                <rect x="3.5" y="13.5" width="7" height="7" rx="1.8" />
+                <rect x="13.5" y="13.5" width="7" height="7" rx="1.8" />
+              </svg>
             </button>
           ) : (
-            <button type="button" className="view-toggle" onClick={openDeck}>
-              <span aria-hidden="true">❏</span>
-              <span>Xem từng thẻ</span>
+            <button type="button" className="back-btn--icon view-toggle" onClick={openDeck} aria-label="Xem từng thẻ" title="Xem từng thẻ">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="3.5" y="5" width="17" height="14" rx="2.5" />
+              </svg>
             </button>
           )}
         </div>
