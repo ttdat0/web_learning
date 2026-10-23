@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import Stack from './Stack/Stack';
 import HoloCard from './HoloCard/HoloCard';
@@ -20,13 +20,24 @@ function useViewportWidth() {
   return vw;
 }
 
+type ViewMode = 'deck' | 'grid';
+
 export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () => void }) {
   const vw = useViewportWidth();
   const [topIndex, setTopIndex] = useState(0);
-  // Hai chế độ xem: 'deck' vuốt từng thẻ (Stack) và 'grid' xem toàn bộ.
-  const [mode, setMode] = useState<'deck' | 'grid'>('deck');
+  // Hai chế độ xem và "đường về" của nút Quay lại theo đúng luồng sử dụng:
+  // lưới → chạm thẻ/từ lưới sang thẻ: Back quay về lưới; đang ở lưới hoặc ở
+  // thẻ mở thẳng từ trang chủ: Back về trang chủ.
+  const [mode, setMode] = useState<ViewMode>('deck');
+  const [deckFromGrid, setDeckFromGrid] = useState(false);
   // Thẻ trên cùng khi (re)mount bộ bài — lưới nhảy tới thẻ nào thì đặt ở đây.
   const [deckStart, setDeckStart] = useState(0);
+  const [backMenu, setBackMenu] = useState(false);
+  const pressTimer = useRef<number | null>(null);
+  const longPressed = useRef(false);
+  // Mốc nhả tay sau nhấn giữ: cú click "dội" mà trình duyệt tự bắn vào phần
+  // tử dưới ngón tay ngay khi nhả phải bị bỏ qua; lần chạm thật luôn muộn hơn.
+  const releasedAt = useRef(0);
   const count = topic.items.length;
 
   // Thẻ học bọc hiệu ứng holo — vuốt thẻ trên cùng để lật sang thẻ tiếp theo.
@@ -48,35 +59,76 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
     speak(item.speak, item.id);
   };
 
+  /** Quay lại: ở lưới hoặc ở thẻ không qua lưới thì về trang chủ;
+      ở thẻ được mở từ lưới thì quay về lưới. */
+  const goBack = () => {
+    setBackMenu(false);
+    if (mode === 'deck' && deckFromGrid) {
+      setMode('grid');
+      return;
+    }
+    onBack();
+  };
+
+  const goHome = () => {
+    setBackMenu(false);
+    onBack();
+  };
+
+  const openGrid = () => setMode('grid');
+
+  const openDeck = () => {
+    setDeckStart(topIndex);
+    setDeckFromGrid(true);
+    setMode('deck');
+  };
+
   // Từ lưới: nhảy thẳng tới thẻ được chọn ở dạng từng thẻ và đọc luôn thẻ đó.
   const jumpTo = (index: number) => {
     const item = topic.items[index];
     if (!item) return;
     setDeckStart(index);
     setTopIndex(index);
+    setDeckFromGrid(true);
     setMode('deck');
     speak(item.speak, item.id);
   };
 
-  // Từ lưới quay lại dạng từng thẻ mà không chọn thẻ: giữ nguyên thẻ đang học.
-  const backToDeck = () => {
-    setDeckStart(topIndex);
-    setMode('deck');
+  // Nhấn giữ nút Quay lại ~0.55s → mở menu chọn nơi quay về; nhả tay sớm =
+  // nhấn thường (lùi một tầng). longPressed chặn cú nhả tay sau khi menu mở
+  // khỏi bị tính thành một lần nhấn nữa.
+  const startPress = () => {
+    longPressed.current = false;
+    pressTimer.current = window.setTimeout(() => {
+      longPressed.current = true;
+      setBackMenu(true);
+    }, 550);
+  };
+  const endPress = () => {
+    if (pressTimer.current !== null) {
+      window.clearTimeout(pressTimer.current);
+      pressTimer.current = null;
+    }
+    if (longPressed.current) {
+      longPressed.current = false;
+      releasedAt.current = Date.now();
+      return;
+    }
+    goBack();
+  };
+  const cancelPress = () => {
+    if (pressTimer.current !== null) {
+      window.clearTimeout(pressTimer.current);
+      pressTimer.current = null;
+    }
   };
 
   return (
     <main className="topic-view">
-      <header className="topic-topbar">
-        <button className="back-btn--icon" onClick={onBack} aria-label="Về trang chủ">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="m12 19-7-7 7-7" />
-            <path d="M19 12H5" />
-          </svg>
-        </button>
+      <header className="topic-topbar topic-topbar--solo">
         <h2 className="topic-topbar__name" style={{ backgroundImage: topic.gradient }}>
           {topic.name}
         </h2>
-        <FullscreenButton />
       </header>
 
       {mode === 'deck' ? (
@@ -138,9 +190,6 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
           <p className="stack-hint stack-hint--below">
             👆 Chạm vào thẻ để nghe · 👉 Vuốt để lật thẻ tiếp theo
           </p>
-          <button type="button" className="mode-toggle" onClick={() => setMode('grid')}>
-            ▦ Xem tất cả {count} thẻ
-          </button>
         </>
       ) : (
         <>
@@ -148,9 +197,72 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
           <p className="stack-hint stack-hint--below">
             👆 Chạm vào một thẻ để học thẻ đó
           </p>
-          <button type="button" className="mode-toggle" onClick={backToDeck}>
-            ❏ Xem từng thẻ
+        </>
+      )}
+
+      <nav className="bottom-bar" aria-label="Điều khiển trang chủ đề">
+        <button
+          type="button"
+          className="bar-btn"
+          aria-label="Quay lại — nhấn giữ để chọn về trang chủ hoặc trang trước đó"
+          onPointerDown={startPress}
+          onPointerUp={endPress}
+          onPointerLeave={cancelPress}
+          onPointerCancel={cancelPress}
+          onContextMenu={e => e.preventDefault()}
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="m12 19-7-7 7-7" />
+            <path d="M19 12H5" />
+          </svg>
+          <span>Quay lại</span>
+        </button>
+        {mode === 'deck' ? (
+          <button type="button" className="bar-btn" onClick={openGrid}>
+            <span aria-hidden="true">▦</span>
+            <span>Xem tất cả</span>
           </button>
+        ) : (
+          <button type="button" className="bar-btn" onClick={openDeck}>
+            <span aria-hidden="true">❏</span>
+            <span>Xem từng thẻ</span>
+          </button>
+        )}
+        <FullscreenButton className="bar-btn" showText />
+      </nav>
+
+      {backMenu && (
+        <>
+          <div
+            className="back-menu-backdrop"
+            onClick={() => {
+              if (Date.now() - releasedAt.current < 250) return;
+              setBackMenu(false);
+            }}
+            aria-hidden="true"
+          />
+          <div className="back-menu" role="menu" aria-label="Chọn nơi quay về">
+            <button
+              type="button"
+              className="back-menu__item"
+              onClick={() => {
+                if (Date.now() - releasedAt.current < 250) return;
+                goHome();
+              }}
+            >
+              <span aria-hidden="true">🏠</span> Về trang chủ
+            </button>
+            <button
+              type="button"
+              className="back-menu__item"
+              onClick={() => {
+                if (Date.now() - releasedAt.current < 250) return;
+                goBack();
+              }}
+            >
+              <span aria-hidden="true">↩️</span> Về trang trước đó
+            </button>
+          </div>
         </>
       )}
     </main>

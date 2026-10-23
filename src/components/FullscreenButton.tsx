@@ -102,7 +102,7 @@ function CompressIcon() {
   );
 }
 
-export default function FullscreenButton({ className = '' }: { className?: string }) {
+export default function FullscreenButton({ className = '', showText = false }: { className?: string; showText?: boolean }) {
   const [api] = useState<FsApi>(detectApi);
   const [active, setActive] = useState(false);
 
@@ -131,6 +131,7 @@ export default function FullscreenButton({ className = '' }: { className?: strin
       title={label}
     >
       {active ? <CompressIcon /> : <ExpandIcon />}
+      {showText && <span className="fs-btn__text">{active ? 'Thu nhỏ' : 'Phóng lớn'}</span>}
     </button>
   );
 }

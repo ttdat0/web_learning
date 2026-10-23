@@ -220,6 +220,7 @@ button {
 
 /* ---------- trang chủ đề: flex co giãn, luôn vừa khít ---------- */
 .topic-view {
+  position: relative;
   flex: 1;
   min-height: 0;
   /* Ghim đúng chiều cao màn hình để chế độ lưới cuộn bên trong khung
@@ -769,10 +770,22 @@ button {
     0 6px 14px -6px rgba(15, 23, 42, 0.35);
 }
 
-.mode-toggle {
-  align-self: center;
-  margin: 4px auto 12px;
-  padding: 9px 18px;
+/* Thanh nút dưới cùng của trang chủ đề: Quay lại · Xem tất cả/từng thẻ · Phóng lớn. */
+.bottom-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 10px 14px;
+}
+
+.bar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 50px;
+  padding: 0 14px;
   border: none;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.92);
@@ -783,8 +796,79 @@ button {
   cursor: pointer;
   box-shadow: 0 8px 18px -8px rgba(15, 23, 42, 0.4);
   -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+  touch-action: manipulation;
 }
 
-.mode-toggle:active {
+.bar-btn:active {
   transform: scale(0.96);
+}
+
+.bar-btn svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+
+/* Nút toàn màn hình khi nằm trong thanh dưới: pill có nhãn thay vì nút tròn. */
+.fs-btn.bar-btn {
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  border-radius: 999px;
+  color: #0c4a6e;
+}
+
+.fs-btn.bar-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Topbar trang chủ đề khi chỉ còn tên (mọi nút đã xuống thanh dưới). */
+.topic-topbar--solo {
+  justify-content: center;
+}
+
+/* Menu nhấn giữ nút Quay lại. */
+.back-menu-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+}
+
+.back-menu {
+  position: absolute;
+  left: 12px;
+  bottom: 168px;
+  z-index: 41;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 216px;
+  padding: 6px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 18px 36px -12px rgba(15, 23, 42, 0.45);
+}
+
+.back-menu__item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: #0f172a;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.98rem;
+  text-align: left;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.back-menu__item:active {
+  background: #f0f9ff;
 }
