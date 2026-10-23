@@ -377,11 +377,18 @@ button {
 
 /* Thẻ chữ cái: chữ thường ở giữa to hơn cho dễ đọc. */
 .learn-card--abc .learn-visual {
-  min-height: 8.4em;
+  min-height: 7.7em;
+}
+
+/* Chữ/số: đẩy vùng hiển thị lên để chân chữ (nhất là chữ g) không
+   chạm sát chip phụ đề nổi ở đáy thẻ. */
+.learn-card--abc .learn-visual,
+.learn-card--num .learn-visual {
+  margin-bottom: 4.2em;
 }
 
 .learn-card--abc .learn-visual__text {
-  font-size: 8.4em;
+  font-size: 7.7em;
 }
 
 .learn-card--big {
