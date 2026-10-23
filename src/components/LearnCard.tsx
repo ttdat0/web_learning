@@ -60,7 +60,7 @@ function ShapeSvg({ shape, color }: { shape: ShapeKind; color: string }) {
 export function LearnVisual({ item }: { item: LearnItem; big?: boolean }) {
   const v = item.visual;
   return (
-    <div className="learn-visual">
+    <div className={`learn-visual${v.kind === 'image' ? ' learn-visual--photo' : ''}`}>
       {v.kind === 'text' && (
         <span
           className={`learn-visual__text${v.text.length > 2 ? ' learn-visual__text--long' : ''}`}
@@ -70,7 +70,19 @@ export function LearnVisual({ item }: { item: LearnItem; big?: boolean }) {
       )}
       {v.kind === 'emoji' && <span className="learn-visual__emoji">{v.emoji}</span>}
       {v.kind === 'image' && (
-        <img className="learn-visual__img" src={v.src} alt={item.label} draggable={false} loading="lazy" decoding="async" />
+        <>
+          {/* Lớp nền: chính ảnh đó, phóng to + làm mờ lấp đầy khung. */}
+          <img
+            className="learn-visual__img-bg"
+            src={v.src}
+            alt=""
+            aria-hidden="true"
+            draggable={false}
+            loading="lazy"
+            decoding="async"
+          />
+          <img className="learn-visual__img" src={v.src} alt={item.label} draggable={false} loading="lazy" decoding="async" />
+        </>
       )}
       {v.kind === 'color' && (
         <span className="learn-visual__swatch" style={{ background: v.hex }} aria-hidden="true" />
@@ -93,6 +105,7 @@ export default function LearnCard({
   const bg = item.cardBg ?? topic.gradient;
   const dark = !!item.darkText;
   const isColor = item.visual.kind === 'color';
+  const isPhoto = item.visual.kind === 'image';
   // Thẻ chữ cái: chữ in hoa ở góc, chữ thường to ở giữa → không cần nhãn nữa.
   // Ẩn nhãn khi nó trùng với chữ/số đã hiển thị to (vd: thẻ "6" không cần thêm nhãn "6")
   const showLabel =
@@ -101,7 +114,7 @@ export default function LearnCard({
     <div
       className={`learn-card${big ? ' learn-card--big' : ''}${dark ? ' learn-card--dark' : ''}${
         item.corner ? ' learn-card--abc' : ''
-      }${isColor ? ' learn-card--color' : ''}`}
+      }${isColor ? ' learn-card--color' : ''}${isPhoto ? ' learn-card--photo' : ''}`}
       style={{ background: bg }}
     >
       {item.corner && (
