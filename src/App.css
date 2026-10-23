@@ -377,11 +377,11 @@ button {
 
 /* Thẻ chữ cái: chữ thường ở giữa to hơn cho dễ đọc. */
 .learn-card--abc .learn-visual {
-  min-height: 7.6em;
+  min-height: 8.4em;
 }
 
 .learn-card--abc .learn-visual__text {
-  font-size: 7em;
+  font-size: 8.4em;
 }
 
 .learn-card--big {
@@ -400,7 +400,7 @@ button {
 }
 
 .learn-visual__text {
-  font-size: 5.8em;
+  font-size: 7.6em;
   font-weight: 800;
   line-height: 1;
   text-shadow: 0 0.07em 0 rgba(0, 0, 0, 0.16);
@@ -408,7 +408,7 @@ button {
 
 /* Số có 3 chữ số (100): thu nhỏ để không tràn thẻ. */
 .learn-visual__text--long {
-  font-size: 4.3em;
+  font-size: 5.6em;
 }
 
 .learn-visual__emoji {
@@ -438,6 +438,11 @@ button {
   border-radius: 50%;
   border: 0.35em solid rgba(255, 255, 255, 0.9);
   box-shadow: 0 0.5em 1em -0.4em rgba(0, 0, 0, 0.35);
+}
+
+.learn-card .learn-visual__svg {
+  width: 8.4em;
+  height: 8.4em;
 }
 
 .learn-visual__svg {
@@ -514,8 +519,9 @@ button {
   box-shadow: 0 0.35em 0.9em -0.3em rgba(0, 0, 0, 0.45);
 }
 
-/* Thẻ màu: vòng màu nhỏ lại + giãn cách gọn hơn, để nhãn dài 2 dòng
-   (vd "Màu xanh dương") và nhãn phụ vẫn nằm trọn trong thẻ. */
+/* Thẻ màu: nền thẻ chính là màu đang học (cardBg = hex của màu) nên
+   bỏ hẳn vòng màu ở giữa — cả thẻ là một tấm màu tràn viền, chỉ còn
+   2 chip chữ nổi ở đáy. */
 .learn-card--color {
   gap: 0.5em;
 }
@@ -525,16 +531,58 @@ button {
 }
 
 .learn-card--color .learn-visual {
-  min-height: 4.8em;
-}
-
-.learn-card--color .learn-visual__swatch {
-  width: 4.8em;
-  height: 4.8em;
+  display: none;
 }
 
 .learn-card--color .learn-card__label {
   font-size: 1.38em;
+}
+
+/* Nhãn của thẻ màu và thẻ hình khối: chip trắng nổi ở đáy thẻ (đồng bộ
+   với thẻ ảnh); riêng thẻ màu, chip phụ đề xếp ngay phía trên nhãn. */
+.learn-card--shape .learn-card__label {
+  position: absolute;
+  left: 50%;
+  bottom: 0.8em;
+  transform: translateX(-50%);
+  z-index: 2;
+  max-width: calc(100% - 1.6em);
+  padding: 0.16em 0.75em;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #0f172a;
+  text-shadow: none;
+  text-align: center;
+  box-shadow: 0 0.35em 0.9em -0.3em rgba(0, 0, 0, 0.45);
+}
+
+/* Thẻ màu không còn hình ở giữa: 2 chip xếp chồng tĩnh ở đáy thẻ
+   (phụ đề trên, nhãn dưới) — nhãn dài tự xuống dòng, không bao giờ
+   bị cắt chữ hay đè nhau. */
+.learn-card--color {
+  justify-content: flex-end;
+  padding-bottom: 0.95em;
+}
+
+.learn-card--color .learn-card__label {
+  position: static;
+  order: 2;
+  align-self: center;
+  max-width: calc(100% - 1.2em);
+  padding: 0.16em 0.75em;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #0f172a;
+  text-shadow: none;
+  text-align: center;
+  box-shadow: 0 0.35em 0.9em -0.3em rgba(0, 0, 0, 0.45);
+}
+
+.learn-card--color .learn-card__sub {
+  position: static;
+  order: 1;
+  align-self: center;
+  transform: none;
 }
 
 .learn-card__label {
@@ -549,12 +597,17 @@ button {
 }
 
 .learn-card__sub {
+  position: absolute;
+  left: 50%;
+  bottom: 0.8em;
+  transform: translateX(-50%);
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   flex-wrap: wrap;
-  max-width: 100%;
+  max-width: calc(100% - 1.2em);
 }
 
 .learn-card__pill {

@@ -106,6 +106,7 @@ export default function LearnCard({
   const dark = !!item.darkText;
   const isColor = item.visual.kind === 'color';
   const isPhoto = item.visual.kind === 'image';
+  const isShape = item.visual.kind === 'shape';
   // Thẻ chữ cái: chữ in hoa ở góc, chữ thường to ở giữa → không cần nhãn nữa.
   // Ẩn nhãn khi nó trùng với chữ/số đã hiển thị to (vd: thẻ "6" không cần thêm nhãn "6")
   const showLabel =
@@ -114,7 +115,9 @@ export default function LearnCard({
     <div
       className={`learn-card${big ? ' learn-card--big' : ''}${dark ? ' learn-card--dark' : ''}${
         item.corner ? ' learn-card--abc' : ''
-      }${isColor ? ' learn-card--color' : ''}${isPhoto ? ' learn-card--photo' : ''}`}
+      }${isColor ? ' learn-card--color' : ''}${isPhoto ? ' learn-card--photo' : ''}${
+        isShape ? ' learn-card--shape' : ''
+      }`}
       style={{ background: bg }}
     >
       {item.corner && (
