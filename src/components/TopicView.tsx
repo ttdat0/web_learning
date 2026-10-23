@@ -8,23 +8,24 @@ import FullscreenButton from './FullscreenButton';
 import type { Topic } from '../data/topics';
 import { speak } from '../lib/speak';
 
-/** Chiều rộng khung hình hiện tại — dùng để tính cỡ chữ cho thẻ học. */
-function useViewportWidth() {
-  const [vw, setVw] = useState(() =>
-    typeof window === 'undefined' ? 424 : window.innerWidth
-  );
+/** Kích thước khung hình hiện tại — dùng để tính cỡ chữ cho thẻ học. */
+function useViewportSize() {
+  const [size, setSize] = useState(() => ({
+    w: typeof window === 'undefined' ? 424 : window.innerWidth,
+    h: typeof window === 'undefined' ? 924 : window.innerHeight
+  }));
   useEffect(() => {
-    const onResize = () => setVw(window.innerWidth);
+    const onResize = () => setSize({ w: window.innerWidth, h: window.innerHeight });
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
-  return vw;
+  return size;
 }
 
 type ViewMode = 'deck' | 'grid';
 
 export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () => void }) {
-  const vw = useViewportWidth();
+  const { w: vw, h: vh } = useViewportSize();
   const [topIndex, setTopIndex] = useState(0);
   // Hai chế độ xem và "đường về" của nút Quay lại theo đúng luồng sử dụng:
   // lưới → chạm thẻ/từ lưới sang thẻ: Back quay về lưới; đang ở lưới hoặc ở
@@ -48,10 +49,10 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
     </HoloCard>
   ));
 
-  // Thẻ lấp đầy khung Stack → cỡ chữ tính theo chiều rộng khung.
-  // Khung Stack rộng tối đa 560px (CSS .stack-wrap), nên var phải theo đúng
-  // chiều rộng thực tế của thẻ, không phải chiều rộng viewport.
-  const cardSize = Math.min(vw - 16, 560);
+  // Thẻ lấp đầy khung Stack → cỡ chữ tính theo khung thẻ thực tế: bị chặn
+  // bởi chiều rộng màn hình, chiều cao còn lại sau topbar/phần dưới, và
+  // trần 780px cho màn hình rất lớn.
+  const cardSize = Math.min(vw - 16, vh - 235, 780);
 
   const handleTap = (index: number) => {
     const item = topic.items[index];
@@ -198,7 +199,7 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
               mediaBackground: topic.gradient,
               content: <LearnVisual item={item} />
             }))}
-            columns={4}
+            columns={vw >= 1100 ? 6 : vw >= 700 ? 5 : 4}
             minCardWidth={100}
             gap={10}
             radius={230}

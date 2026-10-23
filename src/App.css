@@ -50,8 +50,10 @@ button {
 }
 
 @media (min-width: 600px) {
+  /* Mở rộng theo màn hình lớn (PC/tablet ngang) thay vì bó ở 720px;
+     điện thoại vẫn full chiều ngang như cũ. */
   .app__content {
-    max-width: 720px;
+    max-width: 1180px;
   }
 }
 
@@ -164,7 +166,7 @@ button {
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 12px;
-  max-width: 920px;
+  max-width: 1180px;
   /* Là flex-item của .topic-view: margin auto sẽ co topbar lại theo nội dung,
      nên để margin 0 + full width cho nút ra sát góc. */
   margin: 0;
@@ -244,7 +246,7 @@ button {
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  max-width: 560px;
+  max-width: 860px;
   margin: 0 auto;
   padding: 0 8px 18px;
 }
@@ -255,7 +257,7 @@ button {
 .stack-wrap .topic-stack {
   flex: 1;
   min-height: 260px;
-  max-height: 600px;
+  max-height: 780px;
   height: auto;
   margin-top: 28px;
 }
@@ -716,7 +718,7 @@ button {
   min-height: 0;
   overflow-y: auto;
   width: 100%;
-  max-width: 720px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 8px 12px 14px;
 }

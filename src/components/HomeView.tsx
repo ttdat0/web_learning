@@ -32,7 +32,7 @@ export default function HomeView({ onSelect }: { onSelect: (topic: Topic) => voi
   let spread = 70;
   if (size.w > 0) {
     if (axis === 'x') {
-      cardSize = clamp(Math.min(size.h * 0.74, 250), 120, 250);
+      cardSize = clamp(Math.min(size.h * 0.74, 300), 120, 300);
       spread = clamp((size.w - cardSize) / (count - 1), 40, cardSize * 0.58);
     } else {
       cardSize = clamp(Math.min(size.w * 0.56, size.h * 0.44, 236), 120, 236);
