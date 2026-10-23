@@ -125,10 +125,38 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
 
   return (
     <main className="topic-view">
-      <header className="topic-topbar topic-topbar--solo">
+      <header className="topic-topbar">
+        <div className="topic-topbar__left">
+          <button
+            className="back-btn--icon"
+            aria-label="Quay lại — nhấn giữ để chọn về trang chủ hoặc trang trước đó"
+            onPointerDown={startPress}
+            onPointerUp={endPress}
+            onPointerLeave={cancelPress}
+            onPointerCancel={cancelPress}
+            onContextMenu={e => e.preventDefault()}
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="m12 19-7-7 7-7" />
+              <path d="M19 12H5" />
+            </svg>
+          </button>
+          {mode === 'deck' ? (
+            <button type="button" className="view-toggle" onClick={openGrid}>
+              <span aria-hidden="true">▦</span>
+              <span>Xem tất cả</span>
+            </button>
+          ) : (
+            <button type="button" className="view-toggle" onClick={openDeck}>
+              <span aria-hidden="true">❏</span>
+              <span>Xem từng thẻ</span>
+            </button>
+          )}
+        </div>
         <h2 className="topic-topbar__name" style={{ backgroundImage: topic.gradient }}>
           {topic.name}
         </h2>
+        <FullscreenButton />
       </header>
 
       {mode === 'deck' ? (
@@ -199,37 +227,6 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
           </p>
         </>
       )}
-
-      <nav className="bottom-bar" aria-label="Điều khiển trang chủ đề">
-        <button
-          type="button"
-          className="bar-btn"
-          aria-label="Quay lại — nhấn giữ để chọn về trang chủ hoặc trang trước đó"
-          onPointerDown={startPress}
-          onPointerUp={endPress}
-          onPointerLeave={cancelPress}
-          onPointerCancel={cancelPress}
-          onContextMenu={e => e.preventDefault()}
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="m12 19-7-7 7-7" />
-            <path d="M19 12H5" />
-          </svg>
-          <span>Quay lại</span>
-        </button>
-        {mode === 'deck' ? (
-          <button type="button" className="bar-btn" onClick={openGrid}>
-            <span aria-hidden="true">▦</span>
-            <span>Xem tất cả</span>
-          </button>
-        ) : (
-          <button type="button" className="bar-btn" onClick={openDeck}>
-            <span aria-hidden="true">❏</span>
-            <span>Xem từng thẻ</span>
-          </button>
-        )}
-        <FullscreenButton className="bar-btn" showText />
-      </nav>
 
       {backMenu && (
         <>
