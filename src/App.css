@@ -417,10 +417,14 @@ button {
   filter: drop-shadow(0 0.09em 0.09em rgba(0, 0, 0, 0.18));
 }
 
-/* Ảnh thật (danh mục con vật): khung bo góc, viền trắng như vòng màu. */
-.learn-visual__img {
-  width: 6.1em;
-  height: 5.5em;
+/* Ảnh thật (danh mục con vật): khung bo góc, viền trắng như vòng màu.
+   LƯU Ý: rule này phải thắng `.stack-card-content img` của Stack.css
+   (ép mọi ảnh trong thẻ thành 100%x100% theo tỉ lệ gốc) — nên dùng
+   selector 2 lớp `.learn-card .learn-visual__img`. Khung gần vuông
+   6.8x6.4em cho mọi ảnh đồng nhất kích thước và to rõ trên thẻ lớn. */
+.learn-card .learn-visual__img {
+  width: 6.8em;
+  height: 6.4em;
   object-fit: cover;
   border-radius: 0.85em;
   border: 0.3em solid rgba(255, 255, 255, 0.9);
