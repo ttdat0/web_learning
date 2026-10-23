@@ -3,6 +3,7 @@ import type { CSSProperties } from 'react';
 import Stack from './Stack/Stack';
 import HoloCard from './HoloCard/HoloCard';
 import LearnCard, { LearnVisual } from './LearnCard';
+import ChromaGrid from './ChromaGrid/ChromaGrid';
 import FullscreenButton from './FullscreenButton';
 import type { Topic } from '../data/topics';
 import { speak } from '../lib/speak';
@@ -189,28 +190,28 @@ export default function TopicView({ topic, onBack }: { topic: Topic; onBack: () 
         </section>
       ) : (
         <section className="grid-wrap" aria-label={`Tất cả thẻ chủ đề ${topic.name}`}>
-          <div className="topic-grid">
-            {topic.items.map((item, i) => {
-              const textVisual = item.visual.kind === 'text' ? item.visual.text : null;
-              // Nhãn trùng hệt hình chữ (vd số đếm) thì khỏi lặp lại dưới ô.
-              const showLabel = textVisual === null || textVisual !== item.label;
-              return (
-                <button
-                  key={item.id}
-                  type="button"
-                  className={`grid-cell${i === topIndex ? ' grid-cell--current' : ''}`}
-                  style={{ background: topic.gradient }}
-                  onClick={() => jumpTo(i)}
-                  aria-label={`Học thẻ ${item.label}`}
-                >
-                  <span className="grid-cell__visual">
-                    <LearnVisual item={item} />
-                  </span>
-                  {showLabel && <span className="grid-cell__label">{item.label}</span>}
-                </button>
-              );
-            })}
-          </div>
+          <ChromaGrid
+            items={topic.items.map(item => ({
+              title: item.label,
+              subtitle: item.sub ? `${item.sub}${item.subEmoji ? ` ${item.subEmoji}` : ''}` : undefined,
+              accent: topic.gradient.match(/#[0-9a-fA-F]{6}/)?.[0] ?? '#38bdf8',
+              mediaBackground: topic.gradient,
+              content: <LearnVisual item={item} />
+            }))}
+            columns={4}
+            minCardWidth={100}
+            gap={10}
+            radius={230}
+            grayscale={0.3}
+            dim={0.04}
+            glow={0.55}
+            borderGlow={0.9}
+            aspectRatio="1 / 1"
+            cardRadius={20}
+            theme="light"
+            currentIndex={topIndex}
+            onCardClick={jumpTo}
+          />
         </section>
       )}
 

@@ -721,59 +721,6 @@ button {
   padding: 8px 12px 14px;
 }
 
-.topic-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(102px, 1fr));
-  gap: 10px;
-}
-
-.grid-cell {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  aspect-ratio: 0.92;
-  padding: 8px 6px;
-  border: none;
-  border-radius: 20px;
-  color: #fff;
-  font-family: inherit;
-  cursor: pointer;
-  overflow: hidden;
-  box-shadow: 0 6px 14px -6px rgba(15, 23, 42, 0.35);
-  -webkit-tap-highlight-color: transparent;
-}
-
-.grid-cell:active {
-  transform: scale(0.95);
-}
-
-/* Cỡ chữ gốc cho LearnVisual thu nhỏ: mọi kích thước em bám theo đây. */
-.grid-cell__visual {
-  font-size: 10.5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.grid-cell__label {
-  font-weight: 800;
-  font-size: 0.92rem;
-  line-height: 1.15;
-  text-align: center;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35);
-  pointer-events: none;
-}
-
-/* Thẻ đang học được khoanh viền trắng bên trong ô. */
-.grid-cell--current {
-  box-shadow:
-    0 0 0 3px #ffffff inset,
-    0 6px 14px -6px rgba(15, 23, 42, 0.35);
-}
 
 /* Cụm trái của topbar trang chủ đề: nút Back + nút Xem tất cả/từng thẻ. */
 .topic-topbar__left {
