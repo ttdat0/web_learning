@@ -70,22 +70,16 @@ button {
   position: absolute;
   font-size: 2.4rem;
   opacity: 0.75;
-  animation: drift 46s linear infinite;
 }
 
-.decor__item--0 { top: 6%; left: -8%; font-size: 3.4rem; animation-duration: 52s; }
-.decor__item--1 { top: 12%; left: -10%; font-size: 2.6rem; animation-duration: 64s; animation-delay: -18s; }
-.decor__item--2 { top: 30%; left: -6%; animation-duration: 44s; animation-delay: -30s; }
-.decor__item--3 { top: 52%; left: -8%; font-size: 3rem; animation-duration: 58s; animation-delay: -8s; }
-.decor__item--4 { top: 66%; left: -10%; font-size: 3.6rem; animation-duration: 50s; animation-delay: -40s; }
-.decor__item--5 { top: 78%; left: -6%; animation-duration: 60s; animation-delay: -24s; }
-.decor__item--6 { top: 88%; left: -8%; animation-duration: 48s; animation-delay: -12s; }
-.decor__item--7 { top: 42%; left: -10%; font-size: 3.2rem; animation-duration: 66s; animation-delay: -48s; }
-
-@keyframes drift {
-  from { transform: translateX(0); }
-  to { transform: translateX(120vw); }
-}
+.decor__item--0 { top: 6%; left: 4%; font-size: 3.4rem; }
+.decor__item--1 { top: 12%; left: 86%; font-size: 2.6rem; }
+.decor__item--2 { top: 30%; left: 91%; }
+.decor__item--3 { top: 52%; left: 3%; font-size: 3rem; }
+.decor__item--4 { top: 66%; left: 88%; font-size: 3.6rem; }
+.decor__item--5 { top: 78%; left: 7%; }
+.decor__item--6 { top: 88%; left: 82%; }
+.decor__item--7 { top: 42%; left: 94%; font-size: 3.2rem; }
 
 /* ---------- hero trang chủ ---------- */
 .home {
@@ -105,13 +99,8 @@ button {
 .hero__balloon {
   font-size: 4rem;
   display: inline-block;
-  animation: bob 2.6s ease-in-out infinite;
+  transform: rotate(-4deg);
   filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.15));
-}
-
-@keyframes bob {
-  0%, 100% { transform: translateY(0) rotate(-4deg); }
-  50% { transform: translateY(-14px) rotate(4deg); }
 }
 
 .hero__title {
@@ -376,19 +365,24 @@ button {
 }
 
 /* Thẻ chữ cái: chữ thường ở giữa to hơn cho dễ đọc. */
-.learn-card--abc .learn-visual {
-  min-height: 7.7em;
-}
-
-/* Chữ/số: đẩy vùng hiển thị lên để chân chữ (nhất là chữ g) không
-   chạm sát chip phụ đề nổi ở đáy thẻ. */
+/* Thẻ chữ/số: vùng chữ co giãn lấp phần thẻ phía trên chip phụ đề —
+   chip nằm trong luồng ở đáy thẻ (không nổi đè), chữ căn giữa vùng an
+   toàn nên không bị đè chân (g, p) cũng không tràn mép trên (â, ê, ô). */
 .learn-card--abc .learn-visual,
 .learn-card--num .learn-visual {
-  margin-bottom: 4.2em;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+}
+
+.learn-card--abc .learn-card__sub,
+.learn-card--num .learn-card__sub {
+  position: static;
+  transform: none;
 }
 
 .learn-card--abc .learn-visual__text {
-  font-size: 7.7em;
+  font-size: 7.3em;
 }
 
 .learn-card--big {
