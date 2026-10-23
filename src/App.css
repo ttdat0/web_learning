@@ -12,6 +12,11 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
 body {
   margin: 0;
   font-family: var(--font-kid);
@@ -19,6 +24,11 @@ body {
   background: linear-gradient(180deg, #7dd3fc 0%, #bae6fd 40%, #e0f2fe 100%);
   background-attachment: fixed;
   min-height: 100vh;
+  /* App cố định 100dvh và không bao giờ cuộn trang: khóa cuộn + chặn
+     cử chỉ kéo-làm-mới, để khi vuốt (thẻ bay ra ngoài + xoay) trang
+     không bật thanh scroll làm lệch cột — cảm giác như bị tải lại. */
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 
 button {
@@ -31,7 +41,7 @@ button {
   position: relative;
   min-height: 100vh;
   min-height: 100dvh;
-  overflow-x: clip;
+  overflow: clip;
 }
 
 /* Tối ưu cho điện thoại / máy tính bảng:
